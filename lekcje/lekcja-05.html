@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 5: Linki i nawigacja | Kurs HTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html">TEB Edukacja</a></h1>
+                <span class="subtitle">Lekcja 5: Linki i nawigacja</span>
+            </div>
+            <nav class="lesson-nav">
+                <a href="lekcja-04.html" class="nav-link">← Poprzednia lekcja</a>
+                <a href="../index.html" class="nav-link">🏠 Strona główna</a>
+                <a href="lekcja-06.html" class="nav-link">Następna lekcja →</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="lesson-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 41.66%"></div>
+                </div>
+                <span class="progress-text">Lekcja 5 z 12</span>
+            </div>
+
+            <!-- Lesson Content -->
+            <article class="lesson-content">
+                <header class="lesson-header">
+                    <h1>Linki i nawigacja</h1>
+                    <div class="lesson-meta">
+                        <span class="duration">⏱️ 25 minut</span>
+                        <span class="difficulty easy">🟢 Łatwy</span>
+                        <span class="lesson-number">Lekcja 5/12</span>
+                    </div>
+                </header>
+
+                <section class="lesson-section">
+                    <h2>Element &lt;a&gt; - podstawy linków</h2>
+                    <p>
+                        Element <code>&lt;a&gt;</code> (anchor) służy do tworzenia hiperłączy - linków do innych stron, plików lub sekcji w obrębie tej samej strony.
+                    </p>
+
+                    <div class="code-example">
+                        <h4>Podstawowy link zewnętrzny:</h4>
+                        <pre><code class="language-html">&lt;a href="https://www.google.com"&gt;Odwiedź Google&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Jak to wygląda:</h4>
+                        <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; background: #f8fafc;">
+                            <a href="https://www.google.com">Odwiedź Google</a>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5>💡 Najważniejsze atrybuty elementu &lt;a&gt;</h5>
+                        <ul>
+                            <li><code>href</code> - adres docelowy linku (obowiązkowy)</li>
+                            <li><code>target</code> - sposób otwarcia linku</li>
+                            <li><code>title</code> - dodatkowy opis wyświetlany przy najechaniu</li>
+                            <li><code>download</code> - wymusza pobranie pliku zamiast otwarcia</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Atrybut target</h2>
+                    <p>Atrybut <code>target</code> określa, w jaki sposób ma zostać otwarty link.</p>
+
+                    <div class="structure-explanation">
+                        <h4>Wartości atrybutu target:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>_self</code>
+                                <p>Otwiera w tej samej karcie (domyślnie)</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>_blank</code>
+                                <p>Otwiera w nowej karcie/oknie</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>_parent</code>
+                                <p>Otwiera w ramce nadrzędnej</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>_top</code>
+                                <p>Otwiera w pełnym oknie</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Przykłady różnych wartości target:</h4>
+                        <pre><code class="language-html">&lt;!-- Link w tej samej karcie --&gt;
+&lt;a href="https://example.com"&gt;Link w tej samej karcie&lt;/a&gt;
+
+&lt;!-- Link w nowej karcie --&gt;
+&lt;a href="https://example.com" target="_blank"&gt;Link w nowej karcie&lt;/a&gt;
+
+&lt;!-- Link z opisem --&gt;
+&lt;a href="https://example.com" title="Przejdź do strony przykładowej"&gt;
+    Link z opisem
+&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <div class="warning-box">
+                        <h5>⚠️ Bezpieczeństwo przy target="_blank"</h5>
+                        <p>Przy użyciu <code>target="_blank"</code> zaleca się dodanie <code>rel="noopener noreferrer"</code> ze względów bezpieczeństwa:</p>
+                        <pre><code class="language-html">&lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;
+    Bezpieczny link zewnętrzny
+&lt;/a&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Linki wewnętrzne - kotwice</h2>
+                    <p>Kotwice pozwalają na tworzenie linków do konkretnych sekcji na tej samej stronie.</p>
+
+                    <div class="code-example">
+                        <h4>Tworzenie kotwic:</h4>
+                        <pre><code class="language-html">&lt;!-- Sekcja z identyfikatorem --&gt;
+&lt;h2 id="sekcja-1"&gt;Pierwsza sekcja&lt;/h2&gt;
+&lt;p&gt;Treść pierwszej sekcji...&lt;/p&gt;
+
+&lt;h2 id="sekcja-2"&gt;Druga sekcja&lt;/h2&gt;
+&lt;p&gt;Treść drugiej sekcji...&lt;/p&gt;
+
+&lt;!-- Linki do sekcji --&gt;
+&lt;nav&gt;
+    &lt;a href="#sekcja-1"&gt;Przejdź do sekcji 1&lt;/a&gt;
+    &lt;a href="#sekcja-2"&gt;Przejdź do sekcji 2&lt;/a&gt;
+    &lt;a href="#top"&gt;Na górę strony&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Jak to działa:</h4>
+                        <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; background: #f8fafc;">
+                            <p>Po kliknięciu linku z <code>href="#sekcja-1"</code> strona automatycznie przewinie się do elementu o <code>id="sekcja-1"</code>.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Różne typy linków</h2>
+                    <p>HTML pozwala na tworzenie różnych typów linków w zależności od potrzeb.</p>
+
+                    <div class="code-example">
+                        <h4>Typy linków i ich zastosowania:</h4>
+                        <pre><code class="language-html">&lt;!-- Link do adresu email --&gt;
+&lt;a href="mailto:kontakt@example.com"&gt;Wyślij email&lt;/a&gt;
+
+&lt;!-- Link do numeru telefonu --&gt;
+&lt;a href="tel:+48123456789"&gt;Zadzwoń do nas&lt;/a&gt;
+
+&lt;!-- Link do pobrania pliku --&gt;
+&lt;a href="dokument.pdf" download&gt;Pobierz dokument PDF&lt;/a&gt;
+
+&lt;!-- Link z konkretnymi danymi email --&gt;
+&lt;a href="mailto:kontakt@example.com?subject=Pytanie&amp;body=Dzień dobry"&gt;
+    Email z tematem
+&lt;/a&gt;
+
+&lt;!-- Link do lokalizacji (współrzędne GPS) --&gt;
+&lt;a href="geo:52.2297,21.0122"&gt;Pokaż na mapie&lt;/a&gt;</code></pre>
+                    </div>
+
+                    <div class="structure-explanation">
+                        <h4>Protokoły w linkach:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>http://</code>
+                                <p>Standardowy protokół web</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>https://</code>
+                                <p>Bezpieczny protokół web (SSL)</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>mailto:</code>
+                                <p>Link do adresu email</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>tel:</code>
+                                <p>Link do numeru telefonu</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Nawigacja na stronie</h2>
+                    <p>Element <code>&lt;nav&gt;</code> służy do oznaczania głównych obszarów nawigacyjnych strony.</p>
+
+                    <div class="code-example">
+                        <h4>Przykład menu nawigacyjnego:</h4>
+                        <pre><code class="language-html">&lt;nav class="main-navigation"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Strona główna&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="o-nas.html"&gt;O nas&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="uslugi.html"&gt;Usługi&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="portfolio.html"&gt;Portfolio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Menu rozwijane:</h4>
+                        <pre><code class="language-html">&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Strona główna&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="uslugi.html"&gt;Usługi&lt;/a&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="uslugi/projektowanie.html"&gt;Projektowanie&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="uslugi/programowanie.html"&gt;Programowanie&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="uslugi/seo.html"&gt;Optymalizacja SEO&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Breadcrumbs - ścieżka nawigacyjna</h2>
+                    <p>Breadcrumbs pokazują użytkownikowi, gdzie obecnie się znajduje w strukturze strony.</p>
+
+                    <div class="code-example">
+                        <h4>Przykład breadcrumbs:</h4>
+                        <pre><code class="language-html">&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Strona główna&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="kategorie.html"&gt;Kategorie&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="elektronika.html"&gt;Elektronika&lt;/a&gt;&lt;/li&gt;
+        &lt;li aria-current="page"&gt;Smartfony&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Jak to wygląda:</h4>
+                        <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; background: #f8fafc;">
+                            <nav style="font-size: 14px;">
+                                Strona główna > Kategorie > Elektronika > <strong>Smartfony</strong>
+                            </nav>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>🛠️ Ćwiczenie praktyczne</h2>
+                    <div class="exercise-box">
+                        <h4>Zadanie 5: Stwórz stronę z różnymi typami linków</h4>
+                        <p>Utwórz stronę zawierającą wszystkie poznane typy linków i nawigację:</p>
+
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Moja strona z linkami&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { display: inline; margin-right: 20px; }
+        .section { margin: 30px 0; padding: 20px; border: 1px solid #ccc; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Moja strona z nawigacją&lt;/h1&gt;
+
+        &lt;!-- Główne menu --&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#sekcja-o-mnie"&gt;O mnie&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#sekcja-hobby"&gt;Hobby&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#sekcja-kontakt"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#sekcja-linki"&gt;Przydatne linki&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;!-- Sekcja O mnie --&gt;
+        &lt;section id="sekcja-o-mnie" class="section"&gt;
+            &lt;h2&gt;O mnie&lt;/h2&gt;
+            &lt;p&gt;Cześć! Jestem początkującym programistą. Uczę się HTML i już potrafię tworzyć linki!&lt;/p&gt;
+            &lt;p&gt;Możesz przeczytać więcej o moich zainteresowaniach w sekcji
+               &lt;a href="#sekcja-hobby"&gt;hobby&lt;/a&gt;.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Sekcja Hobby --&gt;
+        &lt;section id="sekcja-hobby" class="section"&gt;
+            &lt;h2&gt;Moje hobby&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Programowanie (uczę się HTML, CSS, JavaScript)&lt;/li&gt;
+                &lt;li&gt;Fotografia&lt;/li&gt;
+                &lt;li&gt;Podróżowanie&lt;/li&gt;
+                &lt;li&gt;Czytanie książek o technologii&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Sekcja Kontakt --&gt;
+        &lt;section id="sekcja-kontakt" class="section"&gt;
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+            &lt;p&gt;Skontaktuj się ze mną:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Email: &lt;a href="mailto:twoj.email@example.com"&gt;twoj.email@example.com&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;Telefon: &lt;a href="tel:+48123456789"&gt;+48 123 456 789&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;LinkedIn: &lt;a href="https://linkedin.com/in/twojprofil" target="_blank" rel="noopener noreferrer"&gt;Mój profil LinkedIn&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Sekcja z linkami zewnętrznymi --&gt;
+        &lt;section id="sekcja-linki" class="section"&gt;
+            &lt;h2&gt;Przydatne linki&lt;/h2&gt;
+            &lt;p&gt;Strony, które polecam do nauki programowania:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="https://developer.mozilla.org/pl/" target="_blank" rel="noopener noreferrer"&gt;MDN Web Docs&lt;/a&gt; - dokumentacja HTML, CSS, JS&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer"&gt;W3Schools&lt;/a&gt; - tutoriale i przykłady&lt;/li&gt;
+                &lt;li&gt;&lt;a href="https://github.com/" target="_blank" rel="noopener noreferrer"&gt;GitHub&lt;/a&gt; - hosting kodu&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;p&gt;Przydatne pliki do pobrania:&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="cv.pdf" download&gt;Pobierz moje CV (PDF)&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="portfolio.zip" download&gt;Pobierz portfolio (ZIP)&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&lt;a href="#top"&gt;↑ Powrót na górę strony&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&copy; 2025 Moja strona internetowa&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="exercise-steps">
+                            <h5>Kroki do wykonania:</h5>
+                            <ol>
+                                <li>Skopiuj kod do pliku <code>linki.html</code></li>
+                                <li>Dostosuj zawartość do swoich danych</li>
+                                <li>Dodaj własne sekcje i linki</li>
+                                <li>Przetestuj wszystkie linki wewnętrzne</li>
+                                <li>Sprawdź działanie linków mailto i tel</li>
+                                <li>Otwórz w przeglądarce i przetestuj nawigację</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>📝 Podsumowanie</h2>
+                    <div class="summary-box">
+                        <h4>Czego się nauczyłeś:</h4>
+                        <ul>
+                            <li>&lt;a&gt; tworzy hiperłącza (linki)</li>
+                            <li>href to najważniejszy atrybut - określa cel linku</li>
+                            <li>target="_blank" otwiera link w nowej karcie</li>
+                            <li>Kotwice (#id) pozwalają linkować do sekcji na stronie</li>
+                            <li>mailto: tworzy linki do emaili</li>
+                            <li>tel: tworzy linki do numerów telefonów</li>
+                            <li>&lt;nav&gt; oznacza obszary nawigacyjne</li>
+                            <li>Breadcrumbs pokazują ścieżkę nawigacyjną</li>
+                        </ul>
+                    </div>
+
+                    <div class="next-lesson">
+                        <h4>W następnej lekcji:</h4>
+                        <p>Dowiesz się jak dodawać obrazy, audio i video do swoich stron internetowych.</p>
+                    </div>
+                </section>
+
+                <!-- Test Section -->
+                <section class="lesson-section">
+                    <h2>🧪 Test zaliczeniowy</h2>
+                    <div class="summary-box">
+                        <h4>Sprawdź swoją wiedzę!</h4>
+                        <p>Ukończ test składający się z 20 losowych ćwiczeń aby zaliczyć tę lekcję.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../test.html" class="lesson-link" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                🧪 Rozpocznij test zaliczeniowy
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lesson Navigation -->
+                <nav class="lesson-navigation">
+                    <a href="lekcja-04.html" class="nav-btn prev">← Poprzednia lekcja</a>
+                    <a href="lekcja-06.html" class="nav-btn next">Następna lekcja →</a>
+                </nav>
+
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lesson-sidebar">
+                <div class="sidebar-section">
+                    <h3>📚 Spis lekcji</h3>
+                    <ul class="lesson-list">
+                        <li><a href="lekcja-01.html">1. Wprowadzenie do HTML</a></li>
+                        <li><a href="lekcja-02.html">2. Struktura dokumentu</a></li>
+                        <li><a href="lekcja-03.html">3. Formatowanie tekstu</a></li>
+                        <li><a href="lekcja-04.html">4. Listy</a></li>
+                        <li class="active"><a href="lekcja-05.html">5. Linki i nawigacja</a></li>
+                        <li><a href="lekcja-06.html">6. Obrazy i multimedia</a></li>
+                        <li><a href="lekcja-07.html">7. Tabele</a></li>
+                        <li><a href="lekcja-08.html">8. Formularze podstawowe</a></li>
+                        <li><a href="lekcja-09.html">9. Formularze zaawansowane</a></li>
+                        <li><a href="lekcja-10.html">10. Semantyczne HTML5</a></li>
+                        <li><a href="lekcja-11.html">11. Meta tagi i SEO</a></li>
+                        <li><a href="lekcja-12.html">12. Projekt końcowy</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🎯 Twój postęp</h3>
+                    <div class="progress-circle">
+                        <div class="circle">
+                            <span class="percentage">42%</span>
+                        </div>
+                    </div>
+                    <p>5 z 12 lekcji ukończonych</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>💡 Dodatkowe zasoby</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/a" target="_blank">MDN: Element &lt;a&gt;</a></li>
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/nav" target="_blank">MDN: Element &lt;nav&gt;</a></li>
+                        <li><a href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/" target="_blank">W3C: Breadcrumb Pattern</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Complete Lesson Button -->
+    <div class="complete-section">
+        <div class="container">
+            <button class="complete-lesson-btn" onclick="completeLesson()">
+                ✅ Oznacz lekcję jako ukończoną
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TEB Edukacja - Kurs HTML podstawowy</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/lesson.js"></script>
+
+    <script>
+        function completeLesson() {
+            if (typeof CourseUtils !== 'undefined') {
+                CourseUtils.completeLesson('5');
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        }
+
+        // Sprawdź czy lekcja jest już ukończona
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CourseUtils !== 'undefined' && CourseUtils.isLessonCompleted('5')) {
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Playground | Kurs HTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .playground-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            height: calc(100vh - 200px);
+            margin: 2rem 0;
+        }
+
+        .editor-panel,
+        .preview-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .editor-textarea {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: none;
+            outline: none;
+            background: #2d3748;
+            color: #e2e8f0;
+        }
+
+        .preview-frame {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            background: white;
+        }
+
+        .toolbar {
+            background: var(--background-light);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tool-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .examples-section {
+            background: var(--background-light);
+            padding: 2rem 0;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .example-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .example-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .example-code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            overflow-x: auto;
+        }
+
+        .load-example-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .load-example-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .playground-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .editor-panel,
+            .preview-panel {
+                height: 400px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html">GlobalSynlogia</a></h1>
+                <span class="subtitle">HTML Playground</span>
+            </div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">🏠 Strona główna</a>
+                <a href="quiz.html" class="nav-link">Quiz</a>
+                <a href="projekty.html" class="nav-link">Projekty</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 3rem 0;">
+            <div class="container">
+                <h2 class="hero-title" style="font-size: 2.5rem;">HTML Playground</h2>
+                <p class="hero-description">
+                    Eksperymentuj z kodem HTML w czasie rzeczywistym. Wpisz kod w edytorze po lewej stronie,
+                    a wynik zobaczysz natychmiast po prawej.
+                </p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="toolbar">
+                <button class="tool-btn" onclick="insertTag('h1')">Nagłówek H1</button>
+                <button class="tool-btn" onclick="insertTag('p')">Paragraf</button>
+                <button class="tool-btn" onclick="insertTag('strong')">Pogrubienie</button>
+                <button class="tool-btn" onclick="insertTag('em')">Kursywa</button>
+                <button class="tool-btn" onclick="insertTag('a', 'href=\"#\"')">Link</button>
+                <button class="tool-btn" onclick="insertTag('img', 'src=\"\" alt=\"\"', true)">Obrazek</button>
+                <button class="tool-btn" onclick="insertList('ul')">Lista punktowana</button>
+                <button class="tool-btn" onclick="insertList('ol')">Lista numerowana</button>
+                <button class="tool-btn" onclick="clearEditor()">Wyczyść</button>
+                <button class="tool-btn" onclick="formatCode()">Formatuj kod</button>
+            </div>
+
+            <div class="playground-container">
+                <div class="editor-panel">
+                    <div class="panel-header">
+                        <span>📝 Editor HTML</span>
+                        <span id="lineCount">Linia 1</span>
+                    </div>
+                    <textarea
+                        id="htmlEditor"
+                        class="editor-textarea"
+                        placeholder="Wpisz tutaj swój kod HTML..."
+                        spellcheck="false"
+                    >&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Moja strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Witaj w HTML Playground!&lt;/h1&gt;
+    &lt;p&gt;To jest miejsce do eksperymentowania z HTML.&lt;/p&gt;
+    &lt;p&gt;Spróbuj zmienić ten tekst lub dodać nowe elementy.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                </div>
+
+                <div class="preview-panel">
+                    <div class="panel-header">
+                        <span>👁️ Podgląd</span>
+                        <button class="tool-btn" onclick="openInNewTab()" style="background: white; color: var(--primary-color);">
+                            Otwórz w nowej karcie
+                        </button>
+                    </div>
+                    <iframe id="previewFrame" class="preview-frame"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="examples-section">
+            <div class="container">
+                <h2 class="section-title">Przykłady do wypróbowania</h2>
+                <div class="examples-grid">
+
+                    <div class="example-card">
+                        <div class="example-title">Podstawowa struktura</div>
+                        <div class="example-description">Minimalna struktura dokumentu HTML</div>
+                        <div class="example-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;title&gt;Moja strona&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Witaj świecie!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+                        <button class="load-example-btn" onclick="loadExample(0)">Załaduj przykład</button>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-title">Formatowanie tekstu</div>
+                        <div class="example-description">Różne sposoby formatowania tekstu</div>
+                        <div class="example-code">&lt;h1&gt;Główny nagłówek&lt;/h1&gt;
+&lt;h2&gt;Podtytuł&lt;/h2&gt;
+&lt;p&gt;To jest &lt;strong&gt;pogrubiony&lt;/strong&gt; tekst.&lt;/p&gt;
+&lt;p&gt;To jest &lt;em&gt;kursywa&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;To jest &lt;u&gt;podkreślony&lt;/u&gt; tekst.&lt;/p&gt;</div>
+                        <button class="load-example-btn" onclick="loadExample(1)">Załaduj przykład</button>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-title">Listy</div>
+                        <div class="example-description">Lista punktowana i numerowana</div>
+                        <div class="example-code">&lt;h3&gt;Lista zakupów:&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;Chleb&lt;/li&gt;
+    &lt;li&gt;Mleko&lt;/li&gt;
+    &lt;li&gt;Jajka&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Instrukcja:&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li&gt;Otwórz edytor&lt;/li&gt;
+    &lt;li&gt;Napisz kod&lt;/li&gt;
+    &lt;li&gt;Zapisz plik&lt;/li&gt;
+&lt;/ol&gt;</div>
+                        <button class="load-example-btn" onclick="loadExample(2)">Załaduj przykład</button>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-title">Linki i obrazy</div>
+                        <div class="example-description">Dodawanie linków i obrazów</div>
+                        <div class="example-code">&lt;h2&gt;Linki i obrazy&lt;/h2&gt;
+&lt;p&gt;Odwiedź &lt;a href="https://google.com"&gt;Google&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link do &lt;a href="#sekcja1"&gt;sekcji na tej stronie&lt;/a&gt;&lt;/p&gt;
+
+&lt;img src="https://via.placeholder.com/300x200" alt="Przykładowy obrazek"&gt;
+
+&lt;h3 id="sekcja1"&gt;Sekcja 1&lt;/h3&gt;
+&lt;p&gt;Tutaj jest sekcja 1&lt;/p&gt;</div>
+                        <button class="load-example-btn" onclick="loadExample(3)">Załaduj przykład</button>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-title">Tabela</div>
+                        <div class="example-description">Prosta tabela z danymi</div>
+                        <div class="example-code">&lt;h2&gt;Tabela ocen&lt;/h2&gt;
+&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Imię&lt;/th&gt;
+        &lt;th&gt;Przedmiot&lt;/th&gt;
+        &lt;th&gt;Ocena&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Anna&lt;/td&gt;
+        &lt;td&gt;Matematyka&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Jan&lt;/td&gt;
+        &lt;td&gt;Historia&lt;/td&gt;
+        &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</div>
+                        <button class="load-example-btn" onclick="loadExample(4)">Załaduj przykład</button>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-title">Formularz</div>
+                        <div class="example-description">Podstawowy formularz kontaktowy</div>
+                        <div class="example-code">&lt;h2&gt;Formularz kontaktowy&lt;/h2&gt;
+&lt;form&gt;
+    &lt;p&gt;
+        &lt;label&gt;Imię:&lt;/label&gt;&lt;br&gt;
+        &lt;input type="text" name="imie"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;label&gt;Email:&lt;/label&gt;&lt;br&gt;
+        &lt;input type="email" name="email"&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;label&gt;Wiadomość:&lt;/label&gt;&lt;br&gt;
+        &lt;textarea name="wiadomosc"&gt;&lt;/textarea&gt;
+    &lt;/p&gt;
+    &lt;button type="submit"&gt;Wyślij&lt;/button&gt;
+&lt;/form&gt;</div>
+                        <button class="load-example-btn" onclick="loadExample(5)">Załaduj przykład</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GlobalSynlogia - HTML Playground</p>
+        </div>
+    </footer>
+
+    <script>
+        const editor = document.getElementById('htmlEditor');
+        const preview = document.getElementById('previewFrame');
+        const lineCount = document.getElementById('lineCount');
+
+        // Przykłady kodu
+        const examples = [
+            // 0 - Podstawowa struktura
+            `<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Moja strona</title>
+</head>
+<body>
+    <h1>Witaj świecie!</h1>
+</body>
+</html>`,
+
+            // 1 - Formatowanie tekstu
+            `<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Formatowanie tekstu</title>
+</head>
+<body>
+    <h1>Główny nagłówek</h1>
+    <h2>Podtytuł</h2>
+    <p>To jest <strong>pogrubiony</strong> tekst.</p>
+    <p>To jest <em>kursywa</em>.</p>
+    <p>To jest <u>podkreślony</u> tekst.</p>
+</body>
+</html>`,
+
+            // 2 - Listy
+            `<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Listy</title>
+</head>
+<body>
+    <h3>Lista zakupów:</h3>
+    <ul>
+        <li>Chleb</li>
+        <li>Mleko</li>
+        <li>Jajka</li>
+    </ul>
+
+    <h3>Instrukcja:</h3>
+    <ol>
+        <li>Otwórz edytor</li>
+        <li>Napisz kod</li>
+        <li>Zapisz plik</li>
+    </ol>
+</body>
+</html>`,
+
+            // 3 - Linki i obrazy
+            `<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Linki i obrazy</title>
+</head>
+<body>
+    <h2>Linki i obrazy</h2>
+    <p>Odwiedź <a href="https://google.com">Google</a></p>
+    <p>Link do <a href="#sekcja1">sekcji na tej stronie</a></p>
+
+    <img src="https://via.placeholder.com/300x200" alt="Przykładowy obrazek">
+
+    <h3 id="sekcja1">Sekcja 1</h3>
+    <p>Tutaj jest sekcja 1</p>
+</body>
+</html>`,
+
+            // 4 - Tabela
+            `<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Tabela</title>
+</head>
+<body>
+    <h2>Tabela ocen</h2>
+    <table border="1">
+        <tr>
+            <th>Imię</th>
+            <th>Przedmiot</th>
+            <th>Ocena</th>
+        </tr>
+        <tr>
+            <td>Anna</td>
+            <td>Matematyka</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>Historia</td>
+            <td>4</td>
+        </tr>
+    </table>
+</body>
+</html>`,
+
+            // 5 - Formularz
+            `<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Formularz</title>
+</head>
+<body>
+    <h2>Formularz kontaktowy</h2>
+    <form>
+        <p>
+            <label>Imię:</label><br>
+            <input type="text" name="imie">
+        </p>
+        <p>
+            <label>Email:</label><br>
+            <input type="email" name="email">
+        </p>
+        <p>
+            <label>Wiadomość:</label><br>
+            <textarea name="wiadomosc"></textarea>
+        </p>
+        <button type="submit">Wyślij</button>
+    </form>
+</body>
+</html>`
+        ];
+
+        // Aktualizuj podgląd w czasie rzeczywistym
+        function updatePreview() {
+            const htmlContent = editor.value;
+            const doc = preview.contentDocument || preview.contentWindow.document;
+            doc.open();
+            doc.write(htmlContent);
+            doc.close();
+        }
+
+        // Aktualizuj licznik linii
+        function updateLineCount() {
+            const lines = editor.value.split('\n').length;
+            const cursorPosition = editor.selectionStart;
+            const textBeforeCursor = editor.value.substring(0, cursorPosition);
+            const currentLine = textBeforeCursor.split('\n').length;
+            lineCount.textContent = `Linia ${currentLine}/${lines}`;
+        }
+
+        // Event listenery
+        editor.addEventListener('input', function() {
+            updatePreview();
+            updateLineCount();
+        });
+
+        editor.addEventListener('keyup', updateLineCount);
+        editor.addEventListener('click', updateLineCount);
+
+        // Funkcje narzędzi
+        function insertTag(tagName, attributes = '', selfClosing = false) {
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const selectedText = editor.value.substring(start, end);
+
+            let replacement;
+            if (selfClosing) {
+                replacement = `<${tagName} ${attributes}>`;
+            } else {
+                const openTag = attributes ? `<${tagName} ${attributes}>` : `<${tagName}>`;
+                replacement = `${openTag}${selectedText || 'tekst'}</${tagName}>`;
+            }
+
+            editor.value = editor.value.substring(0, start) + replacement + editor.value.substring(end);
+            updatePreview();
+            editor.focus();
+        }
+
+        function insertList(listType) {
+            const start = editor.selectionStart;
+            const listHTML = `<${listType}>
+    <li>Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+</${listType}>`;
+
+            editor.value = editor.value.substring(0, start) + listHTML + editor.value.substring(start);
+            updatePreview();
+            editor.focus();
+        }
+
+        function clearEditor() {
+            if (confirm('Czy na pewno chcesz wyczyścić edytor?')) {
+                editor.value = '';
+                updatePreview();
+                updateLineCount();
+            }
+        }
+
+        function formatCode() {
+            // Prosta funkcja formatowania (dodaje wcięcia)
+            let formatted = editor.value
+                .replace(/></g, '>\n<')
+                .split('\n')
+                .map(line => line.trim())
+                .filter(line => line.length > 0);
+
+            let indentLevel = 0;
+            let result = [];
+
+            formatted.forEach(line => {
+                if (line.match(/^<\//)) {
+                    indentLevel--;
+                }
+
+                result.push('    '.repeat(Math.max(0, indentLevel)) + line);
+
+                if (line.match(/^<[^\/][^>]*[^\/]>/) && !line.match(/^<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)/)) {
+                    indentLevel++;
+                }
+            });
+
+            editor.value = result.join('\n');
+            updatePreview();
+        }
+
+        function loadExample(index) {
+            editor.value = examples[index];
+            updatePreview();
+            updateLineCount();
+            editor.focus();
+        }
+
+        function openInNewTab() {
+            const htmlContent = editor.value;
+            const newWindow = window.open();
+            newWindow.document.write(htmlContent);
+            newWindow.document.close();
+        }
+
+        // Inicjalizacja
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePreview();
+            updateLineCount();
+        });
+
+        // Skróty klawiszowe
+        editor.addEventListener('keydown', function(e) {
+            // Ctrl+S - formatuj kod
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                formatCode();
+            }
+
+            // Tab - dodaj wcięcie
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+                this.value = this.value.substring(0, start) + '    ' + this.value.substring(end);
+                this.selectionStart = this.selectionEnd = start + 4;
+            }
+        });
+    </script>
+</body>
+</html>

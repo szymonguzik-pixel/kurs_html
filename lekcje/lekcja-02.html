@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 2: Struktura dokumentu HTML | Kurs HTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html">TEB Edukacja</a></h1>
+                <span class="subtitle">Lekcja 2: Struktura dokumentu HTML</span>
+            </div>
+            <nav class="lesson-nav">
+                <a href="lekcja-01.html" class="nav-link">← Poprzednia lekcja</a>
+                <a href="../index.html" class="nav-link">🏠 Strona główna</a>
+                <a href="lekcja-03.html" class="nav-link">Następna lekcja →</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="lesson-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 16.66%"></div>
+                </div>
+                <span class="progress-text">Lekcja 2 z 12</span>
+            </div>
+
+            <!-- Lesson Content -->
+            <article class="lesson-content">
+                <header class="lesson-header">
+                    <h1>Struktura dokumentu HTML</h1>
+                    <div class="lesson-meta">
+                        <span class="duration">⏱️ 20 minut</span>
+                        <span class="difficulty easy">🟢 Łatwy</span>
+                        <span class="lesson-number">Lekcja 2/12</span>
+                    </div>
+                </header>
+
+                <section class="lesson-section">
+                    <h2>Podstawowa anatomia dokumentu HTML</h2>
+                    <p>
+                        Każdy dokument HTML ma określoną strukturę, która jest niezbędna do prawidłowego działania strony.
+                        Poznajmy szczegółowo każdy element tej struktury.
+                    </p>
+
+                    <div class="info-box">
+                        <h3>🎯 Cele tej lekcji</h3>
+                        <ul>
+                            <li>Zrozumienie roli każdego elementu struktury HTML</li>
+                            <li>Poznanie sekcji HEAD i jej zawartości</li>
+                            <li>Zrozumienie sekcji BODY</li>
+                            <li>Nauka o DOCTYPE i jego znaczeniu</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>DOCTYPE - Deklaracja typu dokumentu</h2>
+                    <p>DOCTYPE to pierwsza linia każdego dokumentu HTML5, która informuje przeglądarkę o wersji HTML.</p>
+
+                    <div class="code-example">
+                        <h4>Deklaracja DOCTYPE dla HTML5:</h4>
+                        <pre><code class="language-html">&lt;!DOCTYPE html&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Dlaczego DOCTYPE jest ważny?</h4>
+                        <ul>
+                            <li>Informuje przeglądarkę, jak interpretować kod</li>
+                            <li>Zapewnia zgodność z standardami web</li>
+                            <li>Aktywuje tryb standardowy przeglądarki</li>
+                            <li>Bez DOCTYPE przeglądarka może przejść w tryb quirks</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Element &lt;html&gt;</h2>
+                    <p>Element <code>&lt;html&gt;</code> to kontener najwyższego poziomu, który otacza całą zawartość strony.</p>
+
+                    <div class="code-example">
+                        <h4>Element html z atrybutem lang:</h4>
+                        <pre><code class="language-html">&lt;html lang="pl"&gt;
+    &lt;!-- Cała zawartość strony --&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <div class="syntax-explanation">
+                        <h4>Atrybut lang:</h4>
+                        <ul>
+                            <li><code>lang="pl"</code> - określa język główny strony</li>
+                            <li>Pomaga czytelnikom ekranu i wyszukiwarkom</li>
+                            <li>Wspiera funkcje przeglądarki jak tłumaczenie</li>
+                            <li>Poprawia dostępność strony</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Sekcja &lt;head&gt; - Metadane dokumentu</h2>
+                    <p>Sekcja HEAD zawiera informacje o dokumencie, które nie są wyświetlane na stronie, ale są ważne dla przeglądarki.</p>
+
+                    <div class="code-example">
+                        <h4>Przykładowa sekcja HEAD:</h4>
+                        <pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Tytuł strony&lt;/title&gt;
+    &lt;meta name="description" content="Opis strony"&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+                    </div>
+
+                    <div class="structure-explanation">
+                        <h4>Elementy sekcji HEAD:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>&lt;meta charset="UTF-8"&gt;</code>
+                                <p>Określa kodowanie znaków - UTF-8 obsługuje wszystkie języki</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>&lt;title&gt;</code>
+                                <p>Tytuł strony wyświetlany w zakładce przeglądarki</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>&lt;meta name="viewport"&gt;</code>
+                                <p>Kontroluje zachowanie strony na urządzeniach mobilnych</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>&lt;link rel="stylesheet"&gt;</code>
+                                <p>Łączy plik CSS ze stylem strony</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Meta tag viewport</h2>
+                    <p>Meta tag viewport jest kluczowy dla responsywności strony na urządzeniach mobilnych.</p>
+
+                    <div class="code-example">
+                        <h4>Standardowy viewport dla responsywnych stron:</h4>
+                        <pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Parametry viewport:</h4>
+                        <ul>
+                            <li><code>width=device-width</code> - szerokość równa szerokości urządzenia</li>
+                            <li><code>initial-scale=1.0</code> - początkowy poziom powiększenia</li>
+                            <li><code>user-scalable=no</code> - blokada powiększania (opcjonalne)</li>
+                            <li><code>maximum-scale=1.0</code> - maksymalny poziom powiększenia</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Sekcja &lt;body&gt; - Zawartość strony</h2>
+                    <p>Sekcja BODY zawiera całą widoczną zawartość strony - tekst, obrazy, linki, formularze, itp.</p>
+
+                    <div class="code-example">
+                        <h4>Przykładowa sekcja BODY:</h4>
+                        <pre><code class="language-html">&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Główny nagłówek strony&lt;/h1&gt;
+        &lt;nav&gt;Menu nawigacyjne&lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;h2&gt;Treść główna&lt;/h2&gt;
+        &lt;p&gt;Paragraf z tekstem...&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;Stopka strony&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5>💡 Wskazówka</h5>
+                        <p>Używaj semantycznych tagów HTML5 jak header, main, nav, footer do lepszej struktury</p>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>🛠️ Ćwiczenie praktyczne</h2>
+                    <div class="exercise-box">
+                        <h4>Zadanie 2: Stwórz kompletną strukturę HTML</h4>
+                        <p>Utwórz plik z pełną strukturą HTML zawierającą wszystkie omówione elementy:</p>
+
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Moja druga strona HTML&lt;/title&gt;
+    &lt;meta name="description" content="Strona demonstrująca strukturę HTML"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Witaj na mojej stronie!&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="#o-mnie"&gt;O mnie&lt;/a&gt;
+            &lt;a href="#kontakt"&gt;Kontakt&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id="o-mnie"&gt;
+            &lt;h2&gt;O mnie&lt;/h2&gt;
+            &lt;p&gt;Jestem [TWOJE IMIĘ] i uczę się HTML w TEB Edukacja.&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section id="kontakt"&gt;
+            &lt;h2&gt;Kontakt&lt;/h2&gt;
+            &lt;p&gt;Możesz skontaktować się ze mną przez email.&lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 Moja strona. Stworzona w ramach kursu HTML.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="exercise-steps">
+                            <h5>Kroki do wykonania:</h5>
+                            <ol>
+                                <li>Skopiuj kod do nowego pliku</li>
+                                <li>Zapisz jako <code>struktura.html</code></li>
+                                <li>Zamień [TWOJE IMIĘ] na swoje imię</li>
+                                <li>Otwórz w przeglądarce</li>
+                                <li>Sprawdź tytuł w zakładce</li>
+                                <li>Przetestuj linki nawigacyjne</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>📝 Podsumowanie</h2>
+                    <div class="summary-box">
+                        <h4>Czego się nauczyłeś:</h4>
+                        <ul>
+                            <li>DOCTYPE html deklaruje użycie HTML5</li>
+                            <li>Sekcja HEAD zawiera metadane niewidoczne dla użytkownika</li>
+                            <li>Meta charset="UTF-8" zapewnia poprawne kodowanie znaków</li>
+                            <li>Meta viewport jest kluczowy dla responsywności</li>
+                            <li>Sekcja BODY zawiera całą widoczną zawartość</li>
+                            <li>Semantyczne tagi polepszają strukturę dokumentu</li>
+                        </ul>
+                    </div>
+
+                    <div class="next-lesson">
+                        <h4>W następnej lekcji:</h4>
+                        <p>Poznasz różne sposoby formatowania tekstu w HTML: nagłówki, paragrafy, pogrubienia i kursywy.</p>
+                    </div>
+                </section>
+
+                <!-- Test Section -->
+                <section class="lesson-section">
+                    <h2>🧪 Test zaliczeniowy</h2>
+                    <div class="summary-box">
+                        <h4>Sprawdź swoją wiedzę!</h4>
+                        <p>Ukończ test składający się z 20 losowych ćwiczeń aby zaliczyć tę lekcję.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../test.html" class="lesson-link" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                🧪 Rozpocznij test zaliczeniowy
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lesson Navigation -->
+                <nav class="lesson-navigation">
+                    <a href="lekcja-01.html" class="nav-btn prev">← Poprzednia lekcja</a>
+                    <a href="lekcja-03.html" class="nav-btn next">Następna lekcja →</a>
+                </nav>
+
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lesson-sidebar">
+                <div class="sidebar-section">
+                    <h3>📚 Spis lekcji</h3>
+                    <ul class="lesson-list">
+                        <li><a href="lekcja-01.html">1. Wprowadzenie do HTML</a></li>
+                        <li class="active"><a href="lekcja-02.html">2. Struktura dokumentu</a></li>
+                        <li><a href="lekcja-03.html">3. Formatowanie tekstu</a></li>
+                        <li><a href="lekcja-04.html">4. Listy</a></li>
+                        <li><a href="lekcja-05.html">5. Linki i nawigacja</a></li>
+                        <li><a href="lekcja-06.html">6. Obrazy i multimedia</a></li>
+                        <li><a href="lekcja-07.html">7. Tabele</a></li>
+                        <li><a href="lekcja-08.html">8. Formularze podstawowe</a></li>
+                        <li><a href="lekcja-09.html">9. Formularze zaawansowane</a></li>
+                        <li><a href="lekcja-10.html">10. Semantyczne HTML5</a></li>
+                        <li><a href="lekcja-11.html">11. Meta tagi i SEO</a></li>
+                        <li><a href="lekcja-12.html">12. Projekt końcowy</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🎯 Twój postęp</h3>
+                    <div class="progress-circle">
+                        <div class="circle">
+                            <span class="percentage">17%</span>
+                        </div>
+                    </div>
+                    <p>2 z 12 lekcji ukończonych</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>💡 Dodatkowe zasoby</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/head" target="_blank">MDN: Element HEAD</a></li>
+                        <li><a href="https://validator.w3.org/" target="_blank">HTML Validator</a></li>
+                        <li><a href="https://www.w3.org/International/questions/qa-html-language-declarations" target="_blank">Language declarations</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Complete Lesson Button -->
+    <div class="complete-section">
+        <div class="container">
+            <button class="complete-lesson-btn" onclick="completeLesson()">
+                ✅ Oznacz lekcję jako ukończoną
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TEB Edukacja - Kurs HTML podstawowy</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/lesson.js"></script>
+
+    <script>
+        function completeLesson() {
+            if (typeof CourseUtils !== 'undefined') {
+                CourseUtils.completeLesson('2');
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        }
+
+        // Sprawdź czy lekcja jest już ukończona
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CourseUtils !== 'undefined' && CourseUtils.isLessonCompleted('2')) {
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        });
+    </script>
+</body>
+</html>

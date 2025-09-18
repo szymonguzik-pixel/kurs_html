@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs HTML - Podstawy | TEB Edukacja</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>TEB Edukacja</h1>
+                <span class="subtitle">Kurs HTML - Podstawy</span>
+            </div>
+            <nav class="nav">
+                <a href="#wprowadzenie" class="nav-link">Wprowadzenie</a>
+                <a href="#lekcje" class="nav-link">Lekcje</a>
+                <a href="#praktyka" class="nav-link">Praktyka</a>
+                <a href="test.html" class="nav-link">🧪 Test</a>
+                <a href="#kontakt" class="nav-link">Kontakt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="wprowadzenie">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Naucz się HTML od podstaw</h2>
+                    <p class="hero-description">
+                        Kompletny kurs HTML dla początkujących. Poznaj fundamenty tworzenia stron internetowych
+                        i zacznij swoją przygodę z programowaniem front-end.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Lekcji</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24</span>
+                            <span class="stat-label">Ćwiczeń</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Darmowy</span>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#lekcje" class="cta-button">Rozpocznij kurs</a>
+                        <button onclick="resetProgress()" class="reset-button">🔄 Zacznij od nowa</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Overview -->
+        <section class="course-overview">
+            <div class="container">
+                <h2 class="section-title">Czego się nauczysz?</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon">📝</div>
+                        <h3>Struktura HTML</h3>
+                        <p>Poznasz podstawową strukturę dokumentu HTML i znaczenie każdego elementu.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🏷️</div>
+                        <h3>Tagi i atrybuty</h3>
+                        <p>Nauczysz się używać najważniejszych tagów HTML i ich atrybutów.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🔗</div>
+                        <h3>Linki i nawigacja</h3>
+                        <p>Dowiesz się jak tworzyć linki, menu nawigacyjne i strukturę strony.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">📊</div>
+                        <h3>Tabele i formularze</h3>
+                        <p>Opanujesz tworzenie tabel danych i interaktywnych formularzy.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">🖼️</div>
+                        <h3>Multimedia</h3>
+                        <p>Nauczysz się dodawać obrazy, wideo i audio do swoich stron.</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon">✅</div>
+                        <h3>Dobre praktyki</h3>
+                        <p>Poznasz standardy web accessibility i semantycznego HTML.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Section -->
+        <section class="lessons" id="lekcje">
+            <div class="container">
+                <h2 class="section-title">Plan kursu</h2>
+                <div class="lessons-grid">
+
+                    <!-- Lekcja 1 -->
+                    <div class="lesson-card" data-lesson="1">
+                        <div class="lesson-number">01</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Wprowadzenie do HTML</h3>
+                            <p class="lesson-description">Czym jest HTML? Historia, składnia i podstawowe pojęcia.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 15 min</span>
+                                <span class="lesson-difficulty">🟢 Łatwy</span>
+                            </div>
+                            <a href="lekcje/lekcja-01.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 2 -->
+                    <div class="lesson-card" data-lesson="2">
+                        <div class="lesson-number">02</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Struktura dokumentu HTML</h3>
+                            <p class="lesson-description">DOCTYPE, HTML, HEAD i BODY - budowanie fundamentos strony.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 20 min</span>
+                                <span class="lesson-difficulty">🟢 Łatwy</span>
+                            </div>
+                            <a href="lekcje/lekcja-02.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 3 -->
+                    <div class="lesson-card" data-lesson="3">
+                        <div class="lesson-number">03</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Formatowanie tekstu</h3>
+                            <p class="lesson-description">Nagłówki, paragrafy, pogrubienia i inne elementy tekstowe.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 25 min</span>
+                                <span class="lesson-difficulty">🟢 Łatwy</span>
+                            </div>
+                            <a href="lekcje/lekcja-03.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 4 -->
+                    <div class="lesson-card" data-lesson="4">
+                        <div class="lesson-number">04</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Listy i organizacja treści</h3>
+                            <p class="lesson-description">Listy punktowane, numerowane i definicji.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 20 min</span>
+                                <span class="lesson-difficulty">🟢 Łatwy</span>
+                            </div>
+                            <a href="lekcje/lekcja-04.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 5 -->
+                    <div class="lesson-card" data-lesson="5">
+                        <div class="lesson-number">05</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Linki i nawigacja</h3>
+                            <p class="lesson-description">Tworzenie linków wewnętrznych, zewnętrznych i kotwic.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 30 min</span>
+                                <span class="lesson-difficulty">🟡 Średni</span>
+                            </div>
+                            <a href="lekcje/lekcja-05.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 6 -->
+                    <div class="lesson-card" data-lesson="6">
+                        <div class="lesson-number">06</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Obrazy i multimedia</h3>
+                            <p class="lesson-description">Dodawanie obrazów, optymalizacja i responsywność.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 25 min</span>
+                                <span class="lesson-difficulty">🟡 Średni</span>
+                            </div>
+                            <a href="lekcje/lekcja-06.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 7 -->
+                    <div class="lesson-card" data-lesson="7">
+                        <div class="lesson-number">07</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Tabele</h3>
+                            <p class="lesson-description">Tworzenie tabel danych z nagłówkami i stylizacją.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 35 min</span>
+                                <span class="lesson-difficulty">🟡 Średni</span>
+                            </div>
+                            <a href="lekcje/lekcja-07.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 8 -->
+                    <div class="lesson-card" data-lesson="8">
+                        <div class="lesson-number">08</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Formularze podstawowe</h3>
+                            <p class="lesson-description">Pola tekstowe, przyciski i podstawowa walidacja.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 40 min</span>
+                                <span class="lesson-difficulty">🟡 Średni</span>
+                            </div>
+                            <a href="lekcje/lekcja-08.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 9 -->
+                    <div class="lesson-card" data-lesson="9">
+                        <div class="lesson-number">09</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Formularze zaawansowane</h3>
+                            <p class="lesson-description">Różne typy pól, checkboxy, radio buttons i select.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 45 min</span>
+                                <span class="lesson-difficulty">🔴 Trudny</span>
+                            </div>
+                            <a href="lekcje/lekcja-09.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 10 -->
+                    <div class="lesson-card" data-lesson="10">
+                        <div class="lesson-number">10</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Semantyczne HTML5</h3>
+                            <p class="lesson-description">Header, nav, main, article, section, aside, footer.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 35 min</span>
+                                <span class="lesson-difficulty">🟡 Średni</span>
+                            </div>
+                            <a href="lekcje/lekcja-10.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 11 -->
+                    <div class="lesson-card" data-lesson="11">
+                        <div class="lesson-number">11</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Meta tagi i SEO</h3>
+                            <p class="lesson-description">Optymalizacja dla wyszukiwarek i mediów społecznościowych.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 30 min</span>
+                                <span class="lesson-difficulty">🔴 Trudny</span>
+                            </div>
+                            <a href="lekcje/lekcja-11.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                    <!-- Lekcja 12 -->
+                    <div class="lesson-card" data-lesson="12">
+                        <div class="lesson-number">12</div>
+                        <div class="lesson-content">
+                            <h3 class="lesson-title">Projekt końcowy</h3>
+                            <p class="lesson-description">Stworzenie kompletnej strony używając poznanych elementów.</p>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">⏱️ 60 min</span>
+                                <span class="lesson-difficulty">🔴 Trudny</span>
+                            </div>
+                            <a href="lekcje/lekcja-12.html" class="lesson-link">Przejdź do lekcji</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="practice" id="praktyka">
+            <div class="container">
+                <h2 class="section-title">Ćwiczenia praktyczne</h2>
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h3>HTML Playground</h3>
+                        <p>Eksperymentuj z kodem HTML w czasie rzeczywistym</p>
+                        <a href="praktyka/playground.html" class="practice-link">Otwórz</a>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Quiz HTML</h3>
+                        <p>Sprawdź swoją wiedzę w interaktywnym quizie</p>
+                        <a href="praktyka/quiz.html" class="practice-link">Rozpocznij</a>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Projekty do wykonania</h3>
+                        <p>Gotowe zadania do samodzielnego rozwiązania</p>
+                        <a href="praktyka/projekty.html" class="practice-link">Zobacz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="kontakt">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TEB Edukacja</h3>
+                    <p>Kurs HTML to pierwszy krok do zostania front-end developerem. Ucz się w swoim tempie!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Szybkie linki</h4>
+                    <ul>
+                        <li><a href="#wprowadzenie">Wprowadzenie</a></li>
+                        <li><a href="#lekcje">Lekcje</a></li>
+                        <li><a href="#praktyka">Praktyka</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>Email: szymon.guzik@teb.edu.pl</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TEB Edukacja. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function resetProgress() {
+            if (confirm('Czy na pewno chcesz zresetować cały postęp kursu? Wszystkie ukończone lekcje zostaną odznaczone.')) {
+                if (typeof CourseUtils !== 'undefined') {
+                    CourseUtils.resetProgress();
+                } else {
+                    // Fallback jeśli CourseUtils nie jest dostępny
+                    localStorage.removeItem('htmlCourse_progress');
+                    localStorage.removeItem('htmlCourse_started');
+                    localStorage.removeItem('htmlCourse_times');
+                    localStorage.removeItem('htmlCourse_scroll');
+                    location.reload();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
