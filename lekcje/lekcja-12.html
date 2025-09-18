@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 12: Projekt końcowy | Kurs HTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html">TEB Edukacja</a></h1>
+                <span class="subtitle">Lekcja 12: Projekt końcowy</span>
+            </div>
+            <nav class="lesson-nav">
+                <a href="lekcja-11.html" class="nav-link">← Poprzednia lekcja</a>
+                <a href="../index.html" class="nav-link">🏠 Strona główna</a>
+                <span class="nav-link">🎉 Ostatnia lekcja!</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="lesson-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%"></div>
+                </div>
+                <span class="progress-text">Lekcja 12 z 12</span>
+            </div>
+
+            <!-- Lesson Content -->
+            <article class="lesson-content">
+                <header class="lesson-header">
+                    <h1>Projekt końcowy</h1>
+                    <div class="lesson-meta">
+                        <span class="duration">⏱️ 60 minut</span>
+                        <span class="difficulty hard">🔴 Zaawansowany</span>
+                        <span class="lesson-number">Lekcja 12/12</span>
+                    </div>
+                </header>
+
+                <section class="lesson-section">
+                    <h2>🎯 Cel projektu</h2>
+                    <p>
+                        W tej ostatniej lekcji stworzysz kompletną stronę internetową portfolio, wykorzystując wszystkie poznane elementy HTML. To będzie Twoja wizytówka!
+                    </p>
+
+                    <div class="tip-box">
+                        <h5>💡 Co będzie zawierać Twoje portfolio</h5>
+                        <ul>
+                            <li>Responsywną stronę główną z sekcjami</li>
+                            <li>Galerię projektów z opisami</li>
+                            <li>Formularz kontaktowy</li>
+                            <li>Blog z artykułami</li>
+                            <li>Pełną optymalizację SEO</li>
+                            <li>Wszystkie poznane elementy HTML</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>🛠️ Projekt końcowy: Portfolio</h2>
+                    <div class="exercise-box">
+                        <h4>Zadanie 12: Stwórz kompletne portfolio</h4>
+                        <p>Utwórz profesjonalne portfolio używając wszystkich poznanych elementów HTML:</p>
+
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;!-- Meta tagi SEO --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Jan Kowalski - Frontend Developer | Portfolio&lt;/title&gt;
+    &lt;meta name="description" content="Portfolio Jana Kowalskiego - Frontend Developer specjalizujący się w HTML, CSS, JavaScript. Zobacz moje projekty i skontaktuj się ze mną."&gt;
+    &lt;meta name="keywords" content="frontend developer, portfolio, HTML, CSS, JavaScript, web development"&gt;
+    &lt;meta name="author" content="Jan Kowalski"&gt;
+
+    &lt;!-- Open Graph --&gt;
+    &lt;meta property="og:title" content="Jan Kowalski - Frontend Developer Portfolio"&gt;
+    &lt;meta property="og:description" content="Profesjonalne portfolio developera frontend"&gt;
+    &lt;meta property="og:type" content="website"&gt;
+    &lt;meta property="og:url" content="https://jankowalski.dev"&gt;
+    &lt;meta property="og:image" content="https://jankowalski.dev/images/og-image.jpg"&gt;
+
+    &lt;!-- Twitter Cards --&gt;
+    &lt;meta name="twitter:card" content="summary_large_image"&gt;
+    &lt;meta name="twitter:title" content="Jan Kowalski - Frontend Developer"&gt;
+    &lt;meta name="twitter:description" content="Portfolio developera frontend"&gt;
+
+    &lt;!-- Favicons --&gt;
+    &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+
+    &lt;!-- Fonts --&gt;
+    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"&gt;
+
+    &lt;!-- Styles --&gt;
+    &lt;style&gt;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        /* Contact Form */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    &lt;/style&gt;
+
+    &lt;!-- Schema.org JSON-LD --&gt;
+    &lt;script type="application/ld+json"&gt;
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jan Kowalski",
+        "jobTitle": "Frontend Developer",
+        "url": "https://jankowalski.dev",
+        "sameAs": [
+            "https://github.com/jankowalski",
+            "https://linkedin.com/in/jankowalski"
+        ],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "Vue.js"]
+    }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Skip to main content --&gt;
+    &lt;a href="#main-content" class="skip-link" style="position: absolute; left: -9999px;"&gt;Przejdź do głównej treści&lt;/a&gt;
+
+    &lt;!-- Header --&gt;
+    &lt;header&gt;
+        &lt;nav class="container"&gt;
+            &lt;div class="logo"&gt;JK.dev&lt;/div&gt;
+            &lt;ul class="nav-links"&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;O mnie&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#skills"&gt;Umiejętności&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#projects"&gt;Projekty&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Main Content --&gt;
+    &lt;main id="main-content"&gt;
+        &lt;!-- Hero Section --&gt;
+        &lt;section class="hero"&gt;
+            &lt;div class="container"&gt;
+                &lt;h1&gt;Cześć, jestem Jan Kowalski&lt;/h1&gt;
+                &lt;p&gt;Frontend Developer tworzący nowoczesne aplikacje internetowe&lt;/p&gt;
+                &lt;a href="#contact" class="cta-button"&gt;Skontaktuj się ze mną&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- About Section --&gt;
+        &lt;section id="about" class="container"&gt;
+            &lt;h2 class="section-title"&gt;O mnie&lt;/h2&gt;
+            &lt;div class="about-grid"&gt;
+                &lt;div&gt;
+                    &lt;img src="https://via.placeholder.com/300x300/2563eb/ffffff?text=Twoje+Zdjęcie"
+                         alt="Zdjęcie Jana Kowalskiego"
+                         class="about-image"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;Pasjonat Frontend Development&lt;/h3&gt;
+                    &lt;p&gt;Jestem doświadczonym frontend developerem z &lt;strong&gt;5-letnim doświadczeniem&lt;/strong&gt; w tworzeniu responsywnych i nowoczesnych aplikacji internetowych.&lt;/p&gt;
+
+                    &lt;p&gt;Specjalizuję się w:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Tworzeniu responsywnych stron internetowych&lt;/li&gt;
+                        &lt;li&gt;Optymalizacji wydajności aplikacji&lt;/li&gt;
+                        &lt;li&gt;Implementacji najlepszych praktyk accessibility&lt;/li&gt;
+                        &lt;li&gt;Współpracy z designerami i backend developerami&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    &lt;p&gt;Stale rozwijam swoje umiejętności i śledzę najnowsze trendy w web developmencie.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Skills Section --&gt;
+        &lt;section id="skills" style="background: var(--bg-light);"&gt;
+            &lt;div class="container"&gt;
+                &lt;h2 class="section-title"&gt;Moje umiejętności&lt;/h2&gt;
+                &lt;div class="skills-grid"&gt;
+                    &lt;article class="skill-card"&gt;
+                        &lt;h3&gt;🎨 Frontend&lt;/h3&gt;
+                        &lt;p&gt;HTML5, CSS3, JavaScript ES6+, React, Vue.js, Sass, Bootstrap&lt;/p&gt;
+                    &lt;/article&gt;
+
+                    &lt;article class="skill-card"&gt;
+                        &lt;h3&gt;🛠️ Narzędzia&lt;/h3&gt;
+                        &lt;p&gt;Git, Webpack, Vite, NPM, Figma, Adobe XD, VS Code&lt;/p&gt;
+                    &lt;/article&gt;
+
+                    &lt;article class="skill-card"&gt;
+                        &lt;h3&gt;📱 Responsywność&lt;/h3&gt;
+                        &lt;p&gt;Mobile-first design, Flexbox, CSS Grid, Media queries&lt;/p&gt;
+                    &lt;/article&gt;
+
+                    &lt;article class="skill-card"&gt;
+                        &lt;h3&gt;🚀 Wydajność&lt;/h3&gt;
+                        &lt;p&gt;Optymalizacja obrazów, Lazy loading, Code splitting, SEO&lt;/p&gt;
+                    &lt;/article&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Projects Section --&gt;
+        &lt;section id="projects" class="container"&gt;
+            &lt;h2 class="section-title"&gt;Moje projekty&lt;/h2&gt;
+            &lt;div class="projects-grid"&gt;
+                &lt;article class="project-card"&gt;
+                    &lt;div class="project-image"&gt;🛒 E-commerce&lt;/div&gt;
+                    &lt;div class="project-content"&gt;
+                        &lt;h3&gt;Sklep internetowy&lt;/h3&gt;
+                        &lt;p&gt;Responsywny sklep internetowy zbudowany w React z integracją płatności i zarządzaniem stanem Redux.&lt;/p&gt;
+                        &lt;p&gt;&lt;strong&gt;Technologie:&lt;/strong&gt; React, Redux, Stripe API, CSS Grid&lt;/p&gt;
+                        &lt;p&gt;
+                            &lt;a href="#" target="_blank" rel="noopener"&gt;Demo&lt;/a&gt; |
+                            &lt;a href="#" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+
+                &lt;article class="project-card"&gt;
+                    &lt;div class="project-image"&gt;🎵 Music App&lt;/div&gt;
+                    &lt;div class="project-content"&gt;
+                        &lt;h3&gt;Aplikacja muzyczna&lt;/h3&gt;
+                        &lt;p&gt;Odtwarzacz muzyki z możliwością tworzenia playlist i integracji z Spotify API.&lt;/p&gt;
+                        &lt;p&gt;&lt;strong&gt;Technologie:&lt;/strong&gt; Vue.js, Vuex, Spotify API, Web Audio API&lt;/p&gt;
+                        &lt;p&gt;
+                            &lt;a href="#" target="_blank" rel="noopener"&gt;Demo&lt;/a&gt; |
+                            &lt;a href="#" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+
+                &lt;article class="project-card"&gt;
+                    &lt;div class="project-image"&gt;📊 Dashboard&lt;/div&gt;
+                    &lt;div class="project-content"&gt;
+                        &lt;h3&gt;Dashboard analityczny&lt;/h3&gt;
+                        &lt;p&gt;Interaktywny dashboard z wykresami i wizualizacjami danych w czasie rzeczywistym.&lt;/p&gt;
+                        &lt;p&gt;&lt;strong&gt;Technologie:&lt;/strong&gt; React, D3.js, WebSockets, Chart.js&lt;/p&gt;
+                        &lt;p&gt;
+                            &lt;a href="#" target="_blank" rel="noopener"&gt;Demo&lt;/a&gt; |
+                            &lt;a href="#" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Blog Section --&gt;
+        &lt;section id="blog" style="background: var(--bg-light);"&gt;
+            &lt;div class="container"&gt;
+                &lt;h2 class="section-title"&gt;Blog&lt;/h2&gt;
+                &lt;div class="projects-grid"&gt;
+                    &lt;article class="project-card"&gt;
+                        &lt;div class="project-content"&gt;
+                            &lt;h3&gt;Wprowadzenie do CSS Grid&lt;/h3&gt;
+                            &lt;time datetime="2024-01-15"&gt;15 stycznia 2024&lt;/time&gt;
+                            &lt;p&gt;Poznaj możliwości CSS Grid i naucz się tworzyć zaawansowane layouty...&lt;/p&gt;
+                            &lt;a href="#"&gt;Czytaj więcej →&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/article&gt;
+
+                    &lt;article class="project-card"&gt;
+                        &lt;div class="project-content"&gt;
+                            &lt;h3&gt;React Hooks w praktyce&lt;/h3&gt;
+                            &lt;time datetime="2024-01-10"&gt;10 stycznia 2024&lt;/time&gt;
+                            &lt;p&gt;Praktyczne przykłady użycia useState, useEffect i własnych hooks...&lt;/p&gt;
+                            &lt;a href="#"&gt;Czytaj więcej →&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/article&gt;
+
+                    &lt;article class="project-card"&gt;
+                        &lt;div class="project-content"&gt;
+                            &lt;h3&gt;Optymalizacja wydajności stron&lt;/h3&gt;
+                            &lt;time datetime="2024-01-05"&gt;5 stycznia 2024&lt;/time&gt;
+                            &lt;p&gt;Jak poprawić Core Web Vitals i przyspieszyć ładowanie strony...&lt;/p&gt;
+                            &lt;a href="#"&gt;Czytaj więcej →&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/article&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Contact Section --&gt;
+        &lt;section id="contact" class="container"&gt;
+            &lt;h2 class="section-title"&gt;Skontaktuj się ze mną&lt;/h2&gt;
+            &lt;div class="contact-grid"&gt;
+                &lt;div&gt;
+                    &lt;h3&gt;Napisz do mnie&lt;/h3&gt;
+                    &lt;form action="#" method="POST"&gt;
+                        &lt;fieldset style="border: none; padding: 0;"&gt;
+                            &lt;legend style="display: none;"&gt;Formularz kontaktowy&lt;/legend&gt;
+
+                            &lt;div class="form-group"&gt;
+                                &lt;label for="name"&gt;Imię i nazwisko *&lt;/label&gt;
+                                &lt;input type="text" id="name" name="name" required&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class="form-group"&gt;
+                                &lt;label for="email"&gt;Email *&lt;/label&gt;
+                                &lt;input type="email" id="email" name="email" required&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class="form-group"&gt;
+                                &lt;label for="subject"&gt;Temat&lt;/label&gt;
+                                &lt;select id="subject" name="subject"&gt;
+                                    &lt;option value="project"&gt;Współpraca przy projekcie&lt;/option&gt;
+                                    &lt;option value="job"&gt;Oferta pracy&lt;/option&gt;
+                                    &lt;option value="consultation"&gt;Konsultacje&lt;/option&gt;
+                                    &lt;option value="other"&gt;Inne&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class="form-group"&gt;
+                                &lt;label for="message"&gt;Wiadomość *&lt;/label&gt;
+                                &lt;textarea id="message" name="message" rows="5" required
+                                          placeholder="Opisz swój projekt lub zadaj pytanie..."&gt;&lt;/textarea&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class="form-group"&gt;
+                                &lt;label&gt;
+                                    &lt;input type="checkbox" name="newsletter" value="yes"&gt;
+                                    Chcę otrzymywać newsletter z nowościami z branży
+                                &lt;/label&gt;
+                            &lt;/div&gt;
+
+                            &lt;button type="submit"&gt;Wyślij wiadomość&lt;/button&gt;
+                        &lt;/fieldset&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+
+                &lt;div&gt;
+                    &lt;h3&gt;Inne sposoby kontaktu&lt;/h3&gt;
+                    &lt;address style="font-style: normal; line-height: 2;"&gt;
+                        📧 Email: &lt;a href="mailto:jan@kowalski.dev"&gt;jan@kowalski.dev&lt;/a&gt;&lt;br&gt;
+                        📱 Telefon: &lt;a href="tel:+48123456789"&gt;+48 123 456 789&lt;/a&gt;&lt;br&gt;
+                        💼 LinkedIn: &lt;a href="https://linkedin.com/in/jankowalski" target="_blank" rel="noopener"&gt;/in/jankowalski&lt;/a&gt;&lt;br&gt;
+                        💻 GitHub: &lt;a href="https://github.com/jankowalski" target="_blank" rel="noopener"&gt;/jankowalski&lt;/a&gt;
+                    &lt;/address&gt;
+
+                    &lt;h4&gt;Lokalizacja&lt;/h4&gt;
+                    &lt;p&gt;Warszawa, Polska&lt;br&gt;
+                    Pracuję zdalnie z klientami z całego świata&lt;/p&gt;
+
+                    &lt;h4&gt;Dostępność&lt;/h4&gt;
+                    &lt;p&gt;Poniedziałek - Piątek: 9:00 - 17:00&lt;br&gt;
+                    Czas odpowiedzi: do 24 godzin&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;!-- Footer --&gt;
+    &lt;footer&gt;
+        &lt;div class="container"&gt;
+            &lt;p&gt;&copy; 2024 Jan Kowalski. Wszystkie prawa zastrzeżone.&lt;/p&gt;
+            &lt;div class="social-links"&gt;
+                &lt;a href="https://github.com/jankowalski" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;
+                &lt;a href="https://linkedin.com/in/jankowalski" target="_blank" rel="noopener"&gt;LinkedIn&lt;/a&gt;
+                &lt;a href="https://twitter.com/jankowalski" target="_blank" rel="noopener"&gt;Twitter&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;p&gt;&lt;small&gt;Zbudowane z ❤️ używając semantycznego HTML5&lt;/small&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- JavaScript dla smooth scroll i form --&gt;
+    &lt;script&gt;
+        // Smooth scroll dla linków
+        document.querySelectorAll('a[href^="#"]').forEach(anchor =&gt; {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Obsługa formularza
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Dziękuję za wiadomość! W prawdziwej aplikacji zostałaby wysłana na serwer.');
+        });
+
+        // Animacja pojawiania się elementów przy scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry =&gt; {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Dodaj animacje do sekcji
+        document.querySelectorAll('section').forEach(section =&gt; {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="exercise-steps">
+                            <h5>Kroki do wykonania:</h5>
+                            <ol>
+                                <li>Skopiuj kod do pliku <code>portfolio.html</code></li>
+                                <li>Dostosuj wszystkie dane osobowe do swoich</li>
+                                <li>Zamień placeholder obrazy na swoje zdjęcia</li>
+                                <li>Dodaj swoje prawdziwe projekty</li>
+                                <li>Napisz własne artykuły na blog</li>
+                                <li>Przetestuj wszystkie funkcjonalności</li>
+                                <li>Sprawdź responsywność na różnych urządzeniach</li>
+                                <li>Zoptymalizuj SEO pod swoje dane</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>🎉 Gratulacje!</h2>
+                    <div class="summary-box">
+                        <h4>Ukończyłeś kurs HTML!</h4>
+                        <p>Przez 12 lekcji nauczyłeś się:</p>
+                        <ul>
+                            <li>✅ Podstaw HTML i struktury dokumentu</li>
+                            <li>✅ Formatowania tekstu i organizacji treści</li>
+                            <li>✅ Tworzenia list, linków i nawigacji</li>
+                            <li>✅ Osadzania obrazów i multimediów</li>
+                            <li>✅ Budowania tabel do prezentacji danych</li>
+                            <li>✅ Tworzenia formularzy podstawowych i zaawansowanych</li>
+                            <li>✅ Używania semantycznych elementów HTML5</li>
+                            <li>✅ Optymalizacji SEO i meta tagów</li>
+                            <li>✅ Budowania kompletnego projektu</li>
+                        </ul>
+
+                        <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #10b981, #059669); color: white; border-radius: 8px; text-align: center;">
+                            <h4>🏆 Jesteś teraz HTML Developerem!</h4>
+                            <p>Masz solidne podstawy do dalszej nauki CSS, JavaScript i frameworków.</p>
+                        </div>
+                    </div>
+
+                    <div class="next-lesson">
+                        <h4>Co dalej?</h4>
+                        <p>Teraz możesz przejść do nauki CSS, aby nadać swoim stronom piękny wygląd, a następnie JavaScript dla interaktywności!</p>
+                    </div>
+                </section>
+
+                <!-- Test Section -->
+                <section class="lesson-section">
+                    <h2>🧪 Test końcowy</h2>
+                    <div class="summary-box">
+                        <h4>Sprawdź swoją wiedzę z całego kursu!</h4>
+                        <p>Ukończ test końcowy składający się z 30 pytań z wszystkich lekcji.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../test.html" class="lesson-link" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
+                                🎓 Rozpocznij test końcowy
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lesson Navigation -->
+                <nav class="lesson-navigation">
+                    <a href="lekcja-11.html" class="nav-btn prev">← Poprzednia lekcja</a>
+                    <a href="../index.html" class="nav-btn next">🎉 Zakończ kurs</a>
+                </nav>
+
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lesson-sidebar">
+                <div class="sidebar-section">
+                    <h3>📚 Spis lekcji</h3>
+                    <ul class="lesson-list">
+                        <li><a href="lekcja-01.html">1. Wprowadzenie do HTML</a></li>
+                        <li><a href="lekcja-02.html">2. Struktura dokumentu</a></li>
+                        <li><a href="lekcja-03.html">3. Formatowanie tekstu</a></li>
+                        <li><a href="lekcja-04.html">4. Listy</a></li>
+                        <li><a href="lekcja-05.html">5. Linki i nawigacja</a></li>
+                        <li><a href="lekcja-06.html">6. Obrazy i multimedia</a></li>
+                        <li><a href="lekcja-07.html">7. Tabele</a></li>
+                        <li><a href="lekcja-08.html">8. Formularze podstawowe</a></li>
+                        <li><a href="lekcja-09.html">9. Formularze zaawansowane</a></li>
+                        <li><a href="lekcja-10.html">10. Semantyczne HTML5</a></li>
+                        <li><a href="lekcja-11.html">11. Meta tagi i SEO</a></li>
+                        <li class="active"><a href="lekcja-12.html">12. Projekt końcowy</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🎯 Twój postęp</h3>
+                    <div class="progress-circle">
+                        <div class="circle">
+                            <span class="percentage">100%</span>
+                        </div>
+                    </div>
+                    <p>12 z 12 lekcji ukończonych</p>
+                    <div style="margin-top: 1rem; padding: 1rem; background: #10b981; color: white; border-radius: 8px; text-align: center;">
+                        <strong>🎉 KURS UKOŃCZONY!</strong>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>💡 Następne kroki</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/CSS" target="_blank">Naucz się CSS</a></li>
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/JavaScript" target="_blank">Poznaj JavaScript</a></li>
+                        <li><a href="https://reactjs.org/" target="_blank">Sprawdź React</a></li>
+                        <li><a href="https://github.com/" target="_blank">Załóż konto GitHub</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Complete Lesson Button -->
+    <div class="complete-section">
+        <div class="container">
+            <button class="complete-lesson-btn" onclick="completeLesson()">
+                🎓 Ukończ kurs HTML!
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TEB Edukacja - Kurs HTML podstawowy</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/lesson.js"></script>
+
+    <script>
+        function completeLesson() {
+            if (typeof CourseUtils !== 'undefined') {
+                CourseUtils.completeLesson('12');
+                // Oznacz cały kurs jako ukończony
+                CourseUtils.completeCourse();
+
+                document.querySelector('.complete-lesson-btn').innerHTML = '🎉 Kurs ukończony!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+
+                // Pokazanie gratulacji
+                setTimeout(() => {
+                    alert('🎉 Gratulacje! Ukończyłeś cały kurs HTML!\n\nTeraz możesz przejść do nauki CSS i JavaScript.\n\nPowodzenia w dalszej przygodzie z web developmentem!');
+                }, 500);
+            }
+        }
+
+        // Sprawdź czy lekcja jest już ukończona
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CourseUtils !== 'undefined' && CourseUtils.isLessonCompleted('12')) {
+                document.querySelector('.complete-lesson-btn').innerHTML = '🎉 Kurs ukończony!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        });
+    </script>
+</body>
+</html>

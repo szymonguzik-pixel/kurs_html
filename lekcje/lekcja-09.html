@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 9: Formularze zaawansowane | Kurs HTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html">TEB Edukacja</a></h1>
+                <span class="subtitle">Lekcja 9: Formularze zaawansowane</span>
+            </div>
+            <nav class="lesson-nav">
+                <a href="lekcja-08.html" class="nav-link">← Poprzednia lekcja</a>
+                <a href="../index.html" class="nav-link">🏠 Strona główna</a>
+                <a href="lekcja-10.html" class="nav-link">Następna lekcja →</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="lesson-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <span class="progress-text">Lekcja 9 z 12</span>
+            </div>
+
+            <!-- Lesson Content -->
+            <article class="lesson-content">
+                <header class="lesson-header">
+                    <h1>Formularze zaawansowane</h1>
+                    <div class="lesson-meta">
+                        <span class="duration">⏱️ 45 minut</span>
+                        <span class="difficulty hard">🔴 Zaawansowany</span>
+                        <span class="lesson-number">Lekcja 9/12</span>
+                    </div>
+                </header>
+
+                <section class="lesson-section">
+                    <h2>Element &lt;select&gt; - listy rozwijane</h2>
+                    <p>
+                        Element <code>&lt;select&gt;</code> tworzy listy rozwijane, pozwalając użytkownikom wybierać opcje z predefiniowanej listy.
+                    </p>
+
+                    <div class="code-example">
+                        <h4>Podstawowa lista rozwijana:</h4>
+                        <pre><code class="language-html">&lt;label for="country"&gt;Wybierz kraj:&lt;/label&gt;
+&lt;select id="country" name="country"&gt;
+    &lt;option value=""&gt;-- Wybierz kraj --&lt;/option&gt;
+    &lt;option value="pl"&gt;Polska&lt;/option&gt;
+    &lt;option value="de"&gt;Niemcy&lt;/option&gt;
+    &lt;option value="fr"&gt;Francja&lt;/option&gt;
+    &lt;option value="gb" selected&gt;Wielka Brytania&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Jak to wygląda:</h4>
+                        <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; background: #f8fafc;">
+                            <label>Wybierz kraj:</label><br>
+                            <select style="padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                                <option>-- Wybierz kraj --</option>
+                                <option>Polska</option>
+                                <option>Niemcy</option>
+                                <option>Francja</option>
+                                <option selected>Wielka Brytania</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5>💡 Atrybuty select i option</h5>
+                        <ul>
+                            <li><code>multiple</code> - pozwala na wybór wielu opcji</li>
+                            <li><code>size</code> - liczba widocznych opcji</li>
+                            <li><code>selected</code> - domyślnie wybrana opcja</li>
+                            <li><code>disabled</code> - nieaktywna opcja</li>
+                            <li><code>value</code> - wartość wysyłana w formularzu</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Grupowanie opcji - optgroup</h2>
+                    <p>Element <code>&lt;optgroup&gt;</code> pozwala na grupowanie powiązanych opcji w liście rozwijanej.</p>
+
+                    <div class="code-example">
+                        <h4>Select z grupowaniem:</h4>
+                        <pre><code class="language-html">&lt;label for="food"&gt;Wybierz jedzenie:&lt;/label&gt;
+&lt;select id="food" name="food"&gt;
+    &lt;option value=""&gt;-- Wybierz --&lt;/option&gt;
+
+    &lt;optgroup label="Owoce"&gt;
+        &lt;option value="apple"&gt;Jabłko&lt;/option&gt;
+        &lt;option value="banana"&gt;Banan&lt;/option&gt;
+        &lt;option value="orange"&gt;Pomarańcza&lt;/option&gt;
+    &lt;/optgroup&gt;
+
+    &lt;optgroup label="Warzywa"&gt;
+        &lt;option value="carrot"&gt;Marchew&lt;/option&gt;
+        &lt;option value="potato"&gt;Ziemniak&lt;/option&gt;
+        &lt;option value="tomato"&gt;Pomidor&lt;/option&gt;
+    &lt;/optgroup&gt;
+
+    &lt;optgroup label="Mięso" disabled&gt;
+        &lt;option value="beef"&gt;Wołowina&lt;/option&gt;
+        &lt;option value="chicken"&gt;Kurczak&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Wielokrotny wybór:</h4>
+                        <pre><code class="language-html">&lt;label for="skills"&gt;Wybierz swoje umiejętności (Ctrl+klik):&lt;/label&gt;
+&lt;select id="skills" name="skills" multiple size="6"&gt;
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+    &lt;option value="css"&gt;CSS&lt;/option&gt;
+    &lt;option value="js"&gt;JavaScript&lt;/option&gt;
+    &lt;option value="php"&gt;PHP&lt;/option&gt;
+    &lt;option value="python"&gt;Python&lt;/option&gt;
+    &lt;option value="java"&gt;Java&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Element &lt;textarea&gt; - obszar tekstowy</h2>
+                    <p>Element <code>&lt;textarea&gt;</code> służy do wprowadzania większych ilości tekstu w formularzu.</p>
+
+                    <div class="code-example">
+                        <h4>Podstawowy textarea:</h4>
+                        <pre><code class="language-html">&lt;label for="message"&gt;Twoja wiadomość:&lt;/label&gt;
+&lt;textarea id="message"
+          name="message"
+          rows="5"
+          cols="50"
+          placeholder="Napisz swoją wiadomość..."
+          maxlength="500"
+          required&gt;Domyślna treść&lt;/textarea&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Jak to wygląda:</h4>
+                        <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; background: #f8fafc;">
+                            <label>Twoja wiadomość:</label><br>
+                            <textarea rows="4" style="width: 100%; margin-top: 5px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;" placeholder="Napisz swoją wiadomość..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="structure-explanation">
+                        <h4>Atrybuty textarea:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>rows</code>
+                                <p>Liczba wierszy (wysokość)</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>cols</code>
+                                <p>Liczba kolumn (szerokość)</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>resize</code>
+                                <p>CSS: none, both, horizontal, vertical</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>wrap</code>
+                                <p>soft (domyślnie) lub hard</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Walidacja HTML5</h2>
+                    <p>HTML5 wprowadził wbudowane mechanizmy walidacji formularzy bez potrzeby JavaScript.</p>
+
+                    <div class="code-example">
+                        <h4>Atrybuty walidacyjne:</h4>
+                        <pre><code class="language-html">&lt;!-- Pole wymagane --&gt;
+&lt;input type="text" name="name" required&gt;
+
+&lt;!-- Minimalna i maksymalna długość --&gt;
+&lt;input type="text" name="username" minlength="3" maxlength="20"&gt;
+
+&lt;!-- Wartości min/max dla liczb i dat --&gt;
+&lt;input type="number" name="age" min="18" max="120"&gt;
+&lt;input type="date" name="event" min="2024-01-01" max="2024-12-31"&gt;
+
+&lt;!-- Wzorzec (regex) --&gt;
+&lt;input type="text" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"&gt;
+
+&lt;!-- Własna wiadomość walidacyjna --&gt;
+&lt;input type="email" name="email" title="Wprowadź poprawny adres email"&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Przykłady wzorców (pattern):</h4>
+                        <pre><code class="language-html">&lt;!-- Kod pocztowy (00-000) --&gt;
+&lt;input type="text" pattern="[0-9]{2}-[0-9]{3}" title="Format: 00-000"&gt;
+
+&lt;!-- PESEL (11 cyfr) --&gt;
+&lt;input type="text" pattern="[0-9]{11}" title="PESEL: 11 cyfr"&gt;
+
+&lt;!-- Tylko litery --&gt;
+&lt;input type="text" pattern="[A-Za-z]+" title="Tylko litery"&gt;
+
+&lt;!-- Hasło (min 8 znaków, litera i cyfra) --&gt;
+&lt;input type="password" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}"
+       title="Min 8 znaków, zawiera literę i cyfrę"&gt;</code></pre>
+                    </div>
+
+                    <div class="warning-box">
+                        <h5>⚠️ Ważne o walidacji</h5>
+                        <ul>
+                            <li>Walidacja HTML5 to tylko pierwsza linia obrony</li>
+                            <li>Zawsze waliduj dane po stronie serwera</li>
+                            <li>Nie wszystkie przeglądarki obsługują wszystkie funkcje</li>
+                            <li>Użytkownicy mogą wyłączyć JavaScript</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Zaawansowane typy input HTML5</h2>
+                    <p>HTML5 wprowadził wiele nowych typów pól, które automatycznie dostosowują interfejs i walidację.</p>
+
+                    <div class="code-example">
+                        <h4>Wszystkie typy input HTML5:</h4>
+                        <pre><code class="language-html">&lt;!-- Podstawowe --&gt;
+&lt;input type="text" placeholder="Tekst"&gt;
+&lt;input type="password" placeholder="Hasło"&gt;
+&lt;input type="email" placeholder="Email"&gt;
+&lt;input type="url" placeholder="URL"&gt;
+&lt;input type="tel" placeholder="Telefon"&gt;
+
+&lt;!-- Liczby i zakresy --&gt;
+&lt;input type="number" min="0" max="100" step="1"&gt;
+&lt;input type="range" min="0" max="100" value="50"&gt;
+
+&lt;!-- Data i czas --&gt;
+&lt;input type="date"&gt;
+&lt;input type="time"&gt;
+&lt;input type="datetime-local"&gt;
+&lt;input type="month"&gt;
+&lt;input type="week"&gt;
+
+&lt;!-- Inne --&gt;
+&lt;input type="color" value="#ff0000"&gt;
+&lt;input type="search" placeholder="Szukaj..."&gt;
+&lt;input type="file" accept="image/*" multiple&gt;
+
+&lt;!-- Przyciski --&gt;
+&lt;input type="submit" value="Wyślij"&gt;
+&lt;input type="reset" value="Resetuj"&gt;
+&lt;input type="button" value="Przycisk"&gt;
+
+&lt;!-- Ukryte --&gt;
+&lt;input type="hidden" name="token" value="abc123"&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Elementy pomocnicze</h2>
+                    <p>HTML5 wprowadził również elementy ułatwiające tworzenie przyjaznych formularzy.</p>
+
+                    <div class="code-example">
+                        <h4>Element &lt;datalist&gt; - autocomplete:</h4>
+                        <pre><code class="language-html">&lt;label for="browser"&gt;Wybierz przeglądarkę:&lt;/label&gt;
+&lt;input list="browsers" id="browser" name="browser" placeholder="Wpisz lub wybierz"&gt;
+
+&lt;datalist id="browsers"&gt;
+    &lt;option value="Chrome"&gt;
+    &lt;option value="Firefox"&gt;
+    &lt;option value="Safari"&gt;
+    &lt;option value="Edge"&gt;
+    &lt;option value="Opera"&gt;
+&lt;/datalist&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Element &lt;output&gt; - wynik obliczeń:</h4>
+                        <pre><code class="language-html">&lt;form oninput="result.value=parseInt(a.value)+parseInt(b.value)"&gt;
+    &lt;label&gt;
+        Pierwsza liczba:
+        &lt;input type="number" id="a" name="a" value="10"&gt;
+    &lt;/label&gt;
+
+    &lt;label&gt;
+        Druga liczba:
+        &lt;input type="number" id="b" name="b" value="20"&gt;
+    &lt;/label&gt;
+
+    &lt;p&gt;
+        Suma: &lt;output name="result" for="a b"&gt;30&lt;/output&gt;
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Element &lt;progress&gt; i &lt;meter&gt;:</h4>
+                        <pre><code class="language-html">&lt;!-- Pasek postępu --&gt;
+&lt;label for="file-progress"&gt;Postęp uploadu:&lt;/label&gt;
+&lt;progress id="file-progress" value="32" max="100"&gt;32%&lt;/progress&gt;
+
+&lt;!-- Miernik --&gt;
+&lt;label for="disk-usage"&gt;Użycie dysku:&lt;/label&gt;
+&lt;meter id="disk-usage"
+       value="6" min="0" max="10"
+       low="5" high="8" optimum="2"&gt;
+    6 z 10 GB użytych
+&lt;/meter&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Dostępność formularzy</h2>
+                    <p>Formularze muszą być dostępne dla wszystkich użytkowników, w tym osób korzystających z technologii wspomagających.</p>
+
+                    <div class="code-example">
+                        <h4>Formularz z pełną dostępnością:</h4>
+                        <pre><code class="language-html">&lt;form role="form" aria-labelledby="form-title"&gt;
+    &lt;h2 id="form-title"&gt;Formularz rejestracji&lt;/h2&gt;
+
+    &lt;fieldset&gt;
+        &lt;legend&gt;Dane logowania&lt;/legend&gt;
+
+        &lt;div class="form-group"&gt;
+            &lt;label for="username"&gt;
+                Nazwa użytkownika &lt;span aria-label="wymagane"&gt;*&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;input type="text"
+                   id="username"
+                   name="username"
+                   required
+                   aria-describedby="username-help username-error"&gt;
+            &lt;div id="username-help" class="help-text"&gt;
+                Minimum 3 znaki, maksimum 20 znaków
+            &lt;/div&gt;
+            &lt;div id="username-error" class="error-text" aria-live="polite"&gt;
+                &lt;!-- Błędy walidacji --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-group"&gt;
+            &lt;label for="password"&gt;
+                Hasło &lt;span aria-label="wymagane"&gt;*&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;input type="password"
+                   id="password"
+                   name="password"
+                   required
+                   aria-describedby="password-help"&gt;
+            &lt;div id="password-help" class="help-text"&gt;
+                Minimum 8 znaków, zawiera literę i cyfrę
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+
+    &lt;div class="form-actions"&gt;
+        &lt;button type="submit" aria-describedby="submit-help"&gt;
+            Zarejestruj się
+        &lt;/button&gt;
+        &lt;div id="submit-help" class="help-text"&gt;
+            Kliknij aby utworzyć konto
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5>💡 Kluczowe atrybuty ARIA</h5>
+                        <ul>
+                            <li><code>aria-labelledby</code> - wskazuje element opisujący</li>
+                            <li><code>aria-describedby</code> - dodatkowy opis</li>
+                            <li><code>aria-live</code> - ogłasza zmiany (polite, assertive)</li>
+                            <li><code>aria-required</code> - pole wymagane</li>
+                            <li><code>aria-invalid</code> - pole z błędem</li>
+                            <li><code>role</code> - semantyczna rola elementu</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>🛠️ Ćwiczenie praktyczne</h2>
+                    <div class="exercise-box">
+                        <h4>Zadanie 9: Zaawansowany formularz ankiety</h4>
+                        <p>Stwórz kompleksowy formularz ankiety używając wszystkich poznanych elementów:</p>
+
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Ankieta satysfakcji&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .survey-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            background: #fafafa;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #667eea;
+            padding: 0 15px;
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .radio-group, .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover, .checkbox-item:hover {
+            background-color: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .radio-item input, .checkbox-item input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .rating-scale {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .rating-scale input[type="radio"] {
+            width: auto;
+        }
+
+        .scale-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .range-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .range-value {
+            text-align: center;
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .submit-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .help-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 600px) {
+            .survey-container {
+                padding: 20px;
+            }
+
+            .radio-group, .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-scale {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="survey-container"&gt;
+        &lt;h1&gt;🎯 Ankieta satysfakcji&lt;/h1&gt;
+        &lt;p class="subtitle"&gt;Pomóż nam ulepszyć nasze usługi - wypełnienie zajmuje około 5 minut&lt;/p&gt;
+
+        &lt;div class="progress-bar"&gt;
+            &lt;div class="progress-fill" id="progressBar"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;form id="surveyForm" novalidate&gt;
+            &lt;fieldset&gt;
+                &lt;legend&gt;👤 Informacje podstawowe&lt;/legend&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="name"&gt;
+                        Imię i nazwisko &lt;span class="required"&gt;*&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;input type="text" id="name" name="name" required minlength="2"&gt;
+                    &lt;div class="help-text"&gt;Podaj swoje imię i nazwisko&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="email"&gt;
+                        Email &lt;span class="required"&gt;*&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;input type="email" id="email" name="email" required&gt;
+                    &lt;div class="help-text"&gt;Adres email do ewentualnego kontaktu&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="age-group"&gt;Grupa wiekowa:&lt;/label&gt;
+                    &lt;select id="age-group" name="ageGroup"&gt;
+                        &lt;option value=""&gt;-- Wybierz --&lt;/option&gt;
+                        &lt;optgroup label="Młodsi"&gt;
+                            &lt;option value="under-18"&gt;Poniżej 18 lat&lt;/option&gt;
+                            &lt;option value="18-25"&gt;18-25 lat&lt;/option&gt;
+                            &lt;option value="26-35"&gt;26-35 lat&lt;/option&gt;
+                        &lt;/optgroup&gt;
+                        &lt;optgroup label="Starsi"&gt;
+                            &lt;option value="36-50"&gt;36-50 lat&lt;/option&gt;
+                            &lt;option value="51-65"&gt;51-65 lat&lt;/option&gt;
+                            &lt;option value="over-65"&gt;Powyżej 65 lat&lt;/option&gt;
+                        &lt;/optgroup&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="city"&gt;Miasto:&lt;/label&gt;
+                    &lt;input list="cities" id="city" name="city" placeholder="Wpisz lub wybierz miasto"&gt;
+                    &lt;datalist id="cities"&gt;
+                        &lt;option value="Warszawa"&gt;
+                        &lt;option value="Kraków"&gt;
+                        &lt;option value="Gdańsk"&gt;
+                        &lt;option value="Wrocław"&gt;
+                        &lt;option value="Poznań"&gt;
+                        &lt;option value="Łódź"&gt;
+                    &lt;/datalist&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+
+            &lt;fieldset&gt;
+                &lt;legend&gt;⭐ Ocena usług&lt;/legend&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label&gt;Jak oceniasz jakość naszych usług? &lt;span class="required"&gt;*&lt;/span&gt;&lt;/label&gt;
+                    &lt;div class="rating-scale"&gt;
+                        &lt;label&gt;&lt;input type="radio" name="serviceRating" value="1" required&gt; 1&lt;/label&gt;
+                        &lt;label&gt;&lt;input type="radio" name="serviceRating" value="2"&gt; 2&lt;/label&gt;
+                        &lt;label&gt;&lt;input type="radio" name="serviceRating" value="3"&gt; 3&lt;/label&gt;
+                        &lt;label&gt;&lt;input type="radio" name="serviceRating" value="4"&gt; 4&lt;/label&gt;
+                        &lt;label&gt;&lt;input type="radio" name="serviceRating" value="5"&gt; 5&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div class="scale-labels"&gt;
+                        &lt;span&gt;Bardzo źle&lt;/span&gt;
+                        &lt;span&gt;Doskonale&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="satisfaction"&gt;Poziom satysfakcji (0-100%):&lt;/label&gt;
+                    &lt;div class="range-container"&gt;
+                        &lt;input type="range" id="satisfaction" name="satisfaction"
+                               min="0" max="100" value="50"
+                               oninput="document.getElementById('satisfactionValue').textContent = this.value + '%'"&gt;
+                        &lt;div class="range-value" id="satisfactionValue"&gt;50%&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label&gt;Które aspekty są dla Ciebie najważniejsze? (można wybrać kilka)&lt;/label&gt;
+                    &lt;div class="checkbox-group"&gt;
+                        &lt;label class="checkbox-item"&gt;
+                            &lt;input type="checkbox" name="important" value="quality"&gt;
+                            Jakość
+                        &lt;/label&gt;
+                        &lt;label class="checkbox-item"&gt;
+                            &lt;input type="checkbox" name="important" value="price"&gt;
+                            Cena
+                        &lt;/label&gt;
+                        &lt;label class="checkbox-item"&gt;
+                            &lt;input type="checkbox" name="important" value="speed"&gt;
+                            Szybkość
+                        &lt;/label&gt;
+                        &lt;label class="checkbox-item"&gt;
+                            &lt;input type="checkbox" name="important" value="support"&gt;
+                            Wsparcie
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+
+            &lt;fieldset&gt;
+                &lt;legend&gt;💭 Opinie i sugestie&lt;/legend&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="recommendation"&gt;Czy poleciłbyś nas znajomym?&lt;/label&gt;
+                    &lt;div class="radio-group"&gt;
+                        &lt;label class="radio-item"&gt;
+                            &lt;input type="radio" name="recommendation" value="definitely"&gt;
+                            Zdecydowanie tak
+                        &lt;/label&gt;
+                        &lt;label class="radio-item"&gt;
+                            &lt;input type="radio" name="recommendation" value="probably"&gt;
+                            Prawdopodobnie tak
+                        &lt;/label&gt;
+                        &lt;label class="radio-item"&gt;
+                            &lt;input type="radio" name="recommendation" value="maybe"&gt;
+                            Może
+                        &lt;/label&gt;
+                        &lt;label class="radio-item"&gt;
+                            &lt;input type="radio" name="recommendation" value="probably-not"&gt;
+                            Prawdopodobnie nie
+                        &lt;/label&gt;
+                        &lt;label class="radio-item"&gt;
+                            &lt;input type="radio" name="recommendation" value="definitely-not"&gt;
+                            Zdecydowanie nie
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="suggestions"&gt;Masz jakieś sugestie lub uwagi?&lt;/label&gt;
+                    &lt;textarea id="suggestions" name="suggestions" rows="5"
+                              placeholder="Podziel się swoimi przemyśleniami..."&gt;&lt;/textarea&gt;
+                    &lt;div class="help-text"&gt;Opcjonalne - każda opinia jest dla nas wartościowa&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="contact-time"&gt;Kiedy najlepiej się z Tobą skontaktować?&lt;/label&gt;
+                    &lt;input type="time" id="contact-time" name="contactTime"&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="next-contact"&gt;Data następnego kontaktu:&lt;/label&gt;
+                    &lt;input type="date" id="next-contact" name="nextContact" min="2024-01-01"&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+
+            &lt;fieldset&gt;
+                &lt;legend&gt;📁 Dodatkowe informacje&lt;/legend&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="attachment"&gt;Załącz plik (opcjonalnie):&lt;/label&gt;
+                    &lt;input type="file" id="attachment" name="attachment"
+                           accept=".pdf,.doc,.docx,.txt,.jpg,.png" multiple&gt;
+                    &lt;div class="help-text"&gt;Możesz załączyć zrzuty ekranu, dokumenty lub inne pliki&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label for="priority"&gt;Priorytet odpowiedzi:&lt;/label&gt;
+                    &lt;select id="priority" name="priority"&gt;
+                        &lt;option value="low"&gt;Niski - odpowiedz w ciągu tygodnia&lt;/option&gt;
+                        &lt;option value="normal" selected&gt;Normalny - odpowiedz w ciągu 3 dni&lt;/option&gt;
+                        &lt;option value="high"&gt;Wysoki - odpowiedz w ciągu dnia&lt;/option&gt;
+                        &lt;option value="urgent"&gt;Pilny - odpowiedz jak najszybciej&lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+
+            &lt;div class="submit-section"&gt;
+                &lt;h3&gt;Dziękujemy za poświęcony czas!&lt;/h3&gt;
+                &lt;p&gt;Twoja opinia pomoże nam się rozwijać&lt;/p&gt;
+                &lt;button type="submit" class="submit-btn"&gt;
+                    🚀 Wyślij ankietę
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Pasek postępu
+        function updateProgress() {
+            const form = document.getElementById('surveyForm');
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            const filled = Array.from(inputs).filter(input =&gt; {
+                if (input.type === 'radio') {
+                    return form.querySelector(`input[name="${input.name}"]:checked`);
+                }
+                return input.value.trim() !== '';
+            });
+
+            const progress = (filled.length / inputs.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Aktualizuj pasek postępu przy każdej zmianie
+        document.getElementById('surveyForm').addEventListener('input', updateProgress);
+        document.getElementById('surveyForm').addEventListener('change', updateProgress);
+
+        // Obsługa wysyłania formularza
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Sprawdź czy wszystkie wymagane pola są wypełnione
+            const requiredInputs = this.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredInputs.forEach(input =&gt; {
+                if (input.type === 'radio') {
+                    const radioGroup = this.querySelectorAll(`input[name="${input.name}"]`);
+                    const checked = Array.from(radioGroup).some(radio =&gt; radio.checked);
+                    if (!checked) isValid = false;
+                } else if (!input.value.trim()) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                alert('🎉 Dziękujemy za wypełnienie ankiety!\n\nW prawdziwej aplikacji dane zostałyby wysłane na serwer.');
+                // Tu byłoby prawdziwe wysyłanie danych
+            } else {
+                alert('⚠️ Proszę wypełnić wszystkie wymagane pola przed wysłaniem ankiety.');
+            }
+        });
+
+        // Inicjalizacja paska postępu
+        updateProgress();
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="exercise-steps">
+                            <h5>Kroki do wykonania:</h5>
+                            <ol>
+                                <li>Skopiuj kod do pliku <code>ankieta.html</code></li>
+                                <li>Otwórz w przeglądarce i przetestuj wszystkie elementy</li>
+                                <li>Sprawdź pasek postępu - wypełniaj pola</li>
+                                <li>Przetestuj walidację - zostaw puste wymagane pola</li>
+                                <li>Sprawdź responsywność na różnych ekranach</li>
+                                <li>Dostosuj ankietę do swoich potrzeb</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>📝 Podsumowanie</h2>
+                    <div class="summary-box">
+                        <h4>Czego się nauczyłeś:</h4>
+                        <ul>
+                            <li>&lt;select&gt; i &lt;option&gt; tworzą listy rozwijane</li>
+                            <li>&lt;optgroup&gt; grupuje opcje w select</li>
+                            <li>&lt;textarea&gt; to wieloliniowe pole tekstowe</li>
+                            <li>&lt;datalist&gt; dodaje autouzupełnianie</li>
+                            <li>&lt;output&gt;, &lt;progress&gt;, &lt;meter&gt; to elementy pomocnicze</li>
+                            <li>HTML5 ma wbudowaną walidację (required, pattern, min/max)</li>
+                            <li>ARIA poprawia dostępność formularzy</li>
+                            <li>Responsywność formularzy wymaga przemyślenia</li>
+                        </ul>
+                    </div>
+
+                    <div class="next-lesson">
+                        <h4>W następnej lekcji:</h4>
+                        <p>Poznasz semantyczne elementy HTML5 które nadają znaczenie strukturze strony.</p>
+                    </div>
+                </section>
+
+                <!-- Test Section -->
+                <section class="lesson-section">
+                    <h2>🧪 Test zaliczeniowy</h2>
+                    <div class="summary-box">
+                        <h4>Sprawdź swoją wiedzę!</h4>
+                        <p>Ukończ test składający się z 20 losowych ćwiczeń aby zaliczyć tę lekcję.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../test.html" class="lesson-link" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                🧪 Rozpocznij test zaliczeniowy
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lesson Navigation -->
+                <nav class="lesson-navigation">
+                    <a href="lekcja-08.html" class="nav-btn prev">← Poprzednia lekcja</a>
+                    <a href="lekcja-10.html" class="nav-btn next">Następna lekcja →</a>
+                </nav>
+
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lesson-sidebar">
+                <div class="sidebar-section">
+                    <h3>📚 Spis lekcji</h3>
+                    <ul class="lesson-list">
+                        <li><a href="lekcja-01.html">1. Wprowadzenie do HTML</a></li>
+                        <li><a href="lekcja-02.html">2. Struktura dokumentu</a></li>
+                        <li><a href="lekcja-03.html">3. Formatowanie tekstu</a></li>
+                        <li><a href="lekcja-04.html">4. Listy</a></li>
+                        <li><a href="lekcja-05.html">5. Linki i nawigacja</a></li>
+                        <li><a href="lekcja-06.html">6. Obrazy i multimedia</a></li>
+                        <li><a href="lekcja-07.html">7. Tabele</a></li>
+                        <li><a href="lekcja-08.html">8. Formularze podstawowe</a></li>
+                        <li class="active"><a href="lekcja-09.html">9. Formularze zaawansowane</a></li>
+                        <li><a href="lekcja-10.html">10. Semantyczne HTML5</a></li>
+                        <li><a href="lekcja-11.html">11. Meta tagi i SEO</a></li>
+                        <li><a href="lekcja-12.html">12. Projekt końcowy</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🎯 Twój postęp</h3>
+                    <div class="progress-circle">
+                        <div class="circle">
+                            <span class="percentage">75%</span>
+                        </div>
+                    </div>
+                    <p>9 z 12 lekcji ukończonych</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>💡 Dodatkowe zasoby</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/select" target="_blank">MDN: Element &lt;select&gt;</a></li>
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/textarea" target="_blank">MDN: Element &lt;textarea&gt;</a></li>
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/datalist" target="_blank">MDN: Element &lt;datalist&gt;</a></li>
+                        <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html" target="_blank">WCAG: Identyfikacja błędów</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Complete Lesson Button -->
+    <div class="complete-section">
+        <div class="container">
+            <button class="complete-lesson-btn" onclick="completeLesson()">
+                ✅ Oznacz lekcję jako ukończoną
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TEB Edukacja - Kurs HTML podstawowy</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/lesson.js"></script>
+
+    <script>
+        function completeLesson() {
+            if (typeof CourseUtils !== 'undefined') {
+                CourseUtils.completeLesson('9');
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        }
+
+        // Sprawdź czy lekcja jest już ukończona
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CourseUtils !== 'undefined' && CourseUtils.isLessonCompleted('9')) {
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        });
+    </script>
+</body>
+</html>
