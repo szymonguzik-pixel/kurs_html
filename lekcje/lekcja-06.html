@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekcja 6: Obrazy i multimedia | Kurs HTML</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="../index.html">TEB Edukacja</a></h1>
+                <span class="subtitle">Lekcja 6: Obrazy i multimedia</span>
+            </div>
+            <nav class="lesson-nav">
+                <a href="lekcja-05.html" class="nav-link">← Poprzednia lekcja</a>
+                <a href="../index.html" class="nav-link">🏠 Strona główna</a>
+                <a href="lekcja-07.html" class="nav-link">Następna lekcja →</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="lesson-main">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="lesson-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%"></div>
+                </div>
+                <span class="progress-text">Lekcja 6 z 12</span>
+            </div>
+
+            <!-- Lesson Content -->
+            <article class="lesson-content">
+                <header class="lesson-header">
+                    <h1>Obrazy i multimedia</h1>
+                    <div class="lesson-meta">
+                        <span class="duration">⏱️ 30 minut</span>
+                        <span class="difficulty easy">🟢 Łatwy</span>
+                        <span class="lesson-number">Lekcja 6/12</span>
+                    </div>
+                </header>
+
+                <section class="lesson-section">
+                    <h2>Element &lt;img&gt; - dodawanie obrazów</h2>
+                    <p>
+                        Element <code>&lt;img&gt;</code> służy do osadzania obrazów w dokumentach HTML. Jest to element samozamykający się, nie ma znacznika zamykającego.
+                    </p>
+
+                    <div class="code-example">
+                        <h4>Podstawowy obraz:</h4>
+                        <pre><code class="language-html">&lt;img src="sciezka/do/obrazu.jpg" alt="Opis obrazu"&gt;</code></pre>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5>💡 Najważniejsze atrybuty elementu &lt;img&gt;</h5>
+                        <ul>
+                            <li><code>src</code> - ścieżka do pliku obrazu (obowiązkowy)</li>
+                            <li><code>alt</code> - alternatywny tekst opisujący obraz (obowiązkowy dla dostępności)</li>
+                            <li><code>width</code> i <code>height</code> - wymiary obrazu w pikselach</li>
+                            <li><code>title</code> - dodatkowy opis wyświetlany przy najechaniu</li>
+                            <li><code>loading</code> - kontrola ładowania obrazu (lazy loading)</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Obraz z dodatkowymi atrybutami:</h4>
+                        <pre><code class="language-html">&lt;img src="krajobraz.jpg"
+     alt="Piękny krajobraz górski o zachodzie słońca"
+     width="600"
+     height="400"
+     title="Zdjęcie wykonane w Tatrach"
+     loading="lazy"&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Atrybut alt - dostępność</h2>
+                    <p>Atrybut <code>alt</code> jest kluczowy dla dostępności stron internetowych.</p>
+
+                    <div class="structure-explanation">
+                        <h4>Kiedy używać alt:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>Obrazy informacyjne</code>
+                                <p>Opisz co przedstawia obraz</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>Obrazy dekoracyjne</code>
+                                <p>Użyj pustego alt="" jeśli obraz jest tylko ozdobny</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>Obrazy funkcjonalne</code>
+                                <p>Opisz funkcję, nie wygląd (np. "Szukaj" zamiast "Ikona lupy")</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>Złożone obrazy</code>
+                                <p>Opisz kluczowe informacje lub odwołaj się do opisu poniżej</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Przykłady dobrych opisów alt:</h4>
+                        <pre><code class="language-html">&lt;!-- Obraz informacyjny --&gt;
+&lt;img src="kot.jpg" alt="Rudy kot śpiący na kanapie"&gt;
+
+&lt;!-- Obraz dekoracyjny --&gt;
+&lt;img src="ozdoba.png" alt=""&gt;
+
+&lt;!-- Obraz funkcjonalny (przycisk) --&gt;
+&lt;img src="search-icon.png" alt="Szukaj"&gt;
+
+&lt;!-- Wykres/diagram --&gt;
+&lt;img src="wykres.png" alt="Sprzedaż wzrosła z 10% w styczniu do 25% w marcu"&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Responsywne obrazy - srcset</h2>
+                    <p>Atrybut <code>srcset</code> pozwala na dostarczanie różnych wersji obrazu w zależności od rozdzielczości ekranu.</p>
+
+                    <div class="code-example">
+                        <h4>Podstawowy srcset:</h4>
+                        <pre><code class="language-html">&lt;img src="obraz-small.jpg"
+     srcset="obraz-small.jpg 480w,
+             obraz-medium.jpg 800w,
+             obraz-large.jpg 1200w"
+     sizes="(max-width: 480px) 100vw,
+            (max-width: 800px) 50vw,
+            33vw"
+     alt="Opis obrazu"&gt;</code></pre>
+                    </div>
+
+                    <div class="structure-explanation">
+                        <h4>Jak działa srcset:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>480w</code>
+                                <p>Szerokość obrazu w pikselach</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>sizes</code>
+                                <p>Określa jak duży będzie obraz w różnych warunkach</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>100vw</code>
+                                <p>100% szerokości viewportu</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>Automatyczny wybór</code>
+                                <p>Przeglądarka sama wybiera najlepszy obraz</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Obrazy dla różnych gęstości pikseli:</h4>
+                        <pre><code class="language-html">&lt;img src="logo.png"
+     srcset="logo.png 1x,
+             logo@2x.png 2x,
+             logo@3x.png 3x"
+     alt="Logo firmy"&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Element &lt;figure&gt; i &lt;figcaption&gt;</h2>
+                    <p>Elementy <code>&lt;figure&gt;</code> i <code>&lt;figcaption&gt;</code> służą do grupowania obrazów z ich opisami.</p>
+
+                    <div class="code-example">
+                        <h4>Obraz z podpisem:</h4>
+                        <pre><code class="language-html">&lt;figure&gt;
+    &lt;img src="warszawa.jpg" alt="Panorama Warszawy z lotu ptaka"&gt;
+    &lt;figcaption&gt;
+        Warszawa widziana z góry - zdjęcie wykonane dronem w 2024 roku
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Jak to wygląda:</h4>
+                        <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px; background: #f8fafc;">
+                            <figure style="margin: 0; text-align: center;">
+                                <div style="width: 300px; height: 200px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                                    [Obraz Warszawy]
+                                </div>
+                                <figcaption style="margin-top: 10px; font-style: italic; color: #666;">
+                                    Warszawa widziana z góry - zdjęcie wykonane dronem w 2024 roku
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Audio - element &lt;audio&gt;</h2>
+                    <p>Element <code>&lt;audio&gt;</code> pozwala na osadzanie plików dźwiękowych na stronie.</p>
+
+                    <div class="code-example">
+                        <h4>Podstawowy odtwarzacz audio:</h4>
+                        <pre><code class="language-html">&lt;audio controls&gt;
+    &lt;source src="muzyka.mp3" type="audio/mpeg"&gt;
+    &lt;source src="muzyka.ogg" type="audio/ogg"&gt;
+    Twoja przeglądarka nie obsługuje elementu audio.
+&lt;/audio&gt;</code></pre>
+                    </div>
+
+                    <div class="tip-box">
+                        <h5>💡 Atrybuty elementu &lt;audio&gt;</h5>
+                        <ul>
+                            <li><code>controls</code> - wyświetla kontrolki odtwarzacza</li>
+                            <li><code>autoplay</code> - automatyczne odtwarzanie (unikaj!)</li>
+                            <li><code>loop</code> - zapętlenie odtwarzania</li>
+                            <li><code>muted</code> - wyciszenie dźwięku</li>
+                            <li><code>preload</code> - kontrola preładowania (none, metadata, auto)</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Audio z różnymi opcjami:</h4>
+                        <pre><code class="language-html">&lt;audio controls preload="metadata"&gt;
+    &lt;source src="podcast.mp3" type="audio/mpeg"&gt;
+    &lt;source src="podcast.wav" type="audio/wav"&gt;
+    &lt;p&gt;
+        Twoja przeglądarka nie obsługuje audio.
+        &lt;a href="podcast.mp3"&gt;Pobierz plik&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/audio&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Video - element &lt;video&gt;</h2>
+                    <p>Element <code>&lt;video&gt;</code> służy do osadzania filmów na stronie internetowej.</p>
+
+                    <div class="code-example">
+                        <h4>Podstawowy odtwarzacz wideo:</h4>
+                        <pre><code class="language-html">&lt;video controls width="640" height="360"&gt;
+    &lt;source src="film.mp4" type="video/mp4"&gt;
+    &lt;source src="film.webm" type="video/webm"&gt;
+    &lt;track kind="subtitles" src="napisy-pl.vtt" srclang="pl" label="Polski"&gt;
+    &lt;track kind="subtitles" src="napisy-en.vtt" srclang="en" label="English"&gt;
+    Twoja przeglądarka nie obsługuje elementu video.
+&lt;/video&gt;</code></pre>
+                    </div>
+
+                    <div class="structure-explanation">
+                        <h4>Atrybuty video:</h4>
+                        <div class="explanation-grid">
+                            <div class="explanation-item">
+                                <code>controls</code>
+                                <p>Wyświetla kontrolki (play, pause, głośność)</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>poster</code>
+                                <p>Obraz wyświetlany przed odtworzeniem</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>autoplay muted</code>
+                                <p>Autoplay wymaga muted dla większości przeglądarek</p>
+                            </div>
+                            <div class="explanation-item">
+                                <code>track</code>
+                                <p>Napisy, rozdziały lub opisy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Video z poster i responsywnością:</h4>
+                        <pre><code class="language-html">&lt;video controls
+       width="100%"
+       height="auto"
+       poster="miniatura.jpg"
+       preload="metadata"&gt;
+    &lt;source src="prezentacja.mp4" type="video/mp4"&gt;
+    &lt;source src="prezentacja.webm" type="video/webm"&gt;
+    &lt;p&gt;
+        Twoja przeglądarka nie obsługuje wideo.
+        &lt;a href="prezentacja.mp4"&gt;Pobierz film&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/video&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>Osadzanie zewnętrznych mediów</h2>
+                    <p>Możesz osadzać media z serwisów takich jak YouTube, Vimeo czy SoundCloud.</p>
+
+                    <div class="code-example">
+                        <h4>YouTube z iframe:</h4>
+                        <pre><code class="language-html">&lt;iframe width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h4>Responsywne osadzanie YouTube:</h4>
+                        <pre><code class="language-html">&lt;div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;"&gt;
+    &lt;iframe
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="Opis filmu"
+        frameborder="0"
+        allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="warning-box">
+                        <h5>⚠️ Uwagi dotyczące osadzania</h5>
+                        <ul>
+                            <li>Sprawdź zasady prywatności serwisu</li>
+                            <li>Używaj trybu "privacy-enhanced" gdy dostępny</li>
+                            <li>Zawsze dodaj atrybut title dla dostępności</li>
+                            <li>Rozważ lazy loading dla lepszej wydajności</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>🛠️ Ćwiczenie praktyczne</h2>
+                    <div class="exercise-box">
+                        <h4>Zadanie 6: Stwórz galerię multimediów</h4>
+                        <p>Utwórz stronę z różnymi typami multimediów:</p>
+
+                        <div class="code-example">
+                            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Moja galeria multimediów&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .media-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .media-item img,
+        .media-item video {
+            max-width: 100%;
+            height: auto;
+        }
+        figure { margin: 0; }
+        figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        .responsive-video {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        .responsive-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Moja galeria multimediów&lt;/h1&gt;
+        &lt;p&gt;Przykłady różnych typów mediów w HTML&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Galeria obrazów&lt;/h2&gt;
+            &lt;div class="gallery"&gt;
+                &lt;figure class="media-item"&gt;
+                    &lt;img src="https://picsum.photos/400/300?random=1"
+                         alt="Losowy obraz krajobrazowy"
+                         loading="lazy"&gt;
+                    &lt;figcaption&gt;Przykład obrazu z zewnętrznego serwisu&lt;/figcaption&gt;
+                &lt;/figure&gt;
+
+                &lt;figure class="media-item"&gt;
+                    &lt;img src="https://picsum.photos/400/300?random=2"
+                         alt="Kolejny losowy obraz"
+                         loading="lazy"&gt;
+                    &lt;figcaption&gt;Obraz z lazy loading dla lepszej wydajności&lt;/figcaption&gt;
+                &lt;/figure&gt;
+
+                &lt;figure class="media-item"&gt;
+                    &lt;img src="https://picsum.photos/400/300?random=3"
+                         alt="Trzeci przykładowy obraz"
+                         loading="lazy"&gt;
+                    &lt;figcaption&gt;Wszystkie obrazy mają opisy alt dla dostępności&lt;/figcaption&gt;
+                &lt;/figure&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Audio&lt;/h2&gt;
+            &lt;div class="media-item"&gt;
+                &lt;h3&gt;Przykładowy podcast&lt;/h3&gt;
+                &lt;audio controls preload="metadata"&gt;
+                    &lt;source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"&gt;
+                    &lt;p&gt;Twoja przeglądarka nie obsługuje elementu audio.&lt;/p&gt;
+                &lt;/audio&gt;
+                &lt;p&gt;&lt;small&gt;Dźwięk dzwonka (domena publiczna)&lt;/small&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Wideo lokalne&lt;/h2&gt;
+            &lt;div class="media-item"&gt;
+                &lt;h3&gt;Przykładowe wideo&lt;/h3&gt;
+                &lt;video controls
+                       width="100%"
+                       height="auto"
+                       poster="https://picsum.photos/640/360?random=4"
+                       preload="metadata"&gt;
+                    &lt;source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"&gt;
+                    &lt;p&gt;Twoja przeglądarka nie obsługuje elementu video.&lt;/p&gt;
+                &lt;/video&gt;
+                &lt;p&gt;&lt;small&gt;Big Buck Bunny - film testowy (Creative Commons)&lt;/small&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Osadzone wideo YouTube&lt;/h2&gt;
+            &lt;div class="media-item"&gt;
+                &lt;h3&gt;Responsywne osadzenie YouTube&lt;/h3&gt;
+                &lt;div class="responsive-video"&gt;
+                    &lt;iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Rick Astley - Never Gonna Give You Up"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen&gt;
+                    &lt;/iframe&gt;
+                &lt;/div&gt;
+                &lt;p&gt;&lt;small&gt;Klasyka internetu - responsywne osadzenie&lt;/small&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            &lt;h2&gt;Responsywne obrazy&lt;/h2&gt;
+            &lt;div class="media-item"&gt;
+                &lt;h3&gt;Obraz dostosowujący się do ekranu&lt;/h3&gt;
+                &lt;img src="https://picsum.photos/800/600?random=5"
+                     srcset="https://picsum.photos/400/300?random=5 400w,
+                             https://picsum.photos/800/600?random=5 800w,
+                             https://picsum.photos/1200/900?random=5 1200w"
+                     sizes="(max-width: 480px) 100vw,
+                            (max-width: 800px) 50vw,
+                            33vw"
+                     alt="Responsywny obraz dostosowujący się do rozmiaru ekranu"&gt;
+                &lt;p&gt;&lt;small&gt;Ten obraz automatycznie dostosowuje się do rozmiaru ekranu&lt;/small&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 Moja galeria multimediów&lt;/p&gt;
+        &lt;p&gt;&lt;small&gt;Wszystkie media używane zgodnie z licencjami&lt;/small&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+
+                        <div class="exercise-steps">
+                            <h5>Kroki do wykonania:</h5>
+                            <ol>
+                                <li>Skopiuj kod do pliku <code>multimedia.html</code></li>
+                                <li>Otwórz w przeglądarce i przetestuj wszystkie media</li>
+                                <li>Zmień rozmiar okna - sprawdź responsywność</li>
+                                <li>Dodaj własne obrazy (zastąp linki)</li>
+                                <li>Przetestuj na urządzeniach mobilnych</li>
+                                <li>Sprawdź accessibility z wyłączonym CSS</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="lesson-section">
+                    <h2>📝 Podsumowanie</h2>
+                    <div class="summary-box">
+                        <h4>Czego się nauczyłeś:</h4>
+                        <ul>
+                            <li>&lt;img&gt; osadza obrazy, wymaga src i alt</li>
+                            <li>srcset pozwala na responsywne obrazy</li>
+                            <li>&lt;figure&gt; i &lt;figcaption&gt; grupują obrazy z opisami</li>
+                            <li>&lt;audio&gt; i &lt;video&gt; obsługują multimedia</li>
+                            <li>controls, autoplay, loop, muted to ważne atrybuty mediów</li>
+                            <li>&lt;source&gt; pozwala na multiple formaty</li>
+                            <li>&lt;track&gt; dodaje napisy do wideo</li>
+                            <li>&lt;iframe&gt; osadza zewnętrzne treści</li>
+                        </ul>
+                    </div>
+
+                    <div class="next-lesson">
+                        <h4>W następnej lekcji:</h4>
+                        <p>Dowiesz się jak tworzyć tabele do prezentowania danych w uporządkowany sposób.</p>
+                    </div>
+                </section>
+
+                <!-- Test Section -->
+                <section class="lesson-section">
+                    <h2>🧪 Test zaliczeniowy</h2>
+                    <div class="summary-box">
+                        <h4>Sprawdź swoją wiedzę!</h4>
+                        <p>Ukończ test składający się z 20 losowych ćwiczeń aby zaliczyć tę lekcję.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="../test.html" class="lesson-link" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                🧪 Rozpocznij test zaliczeniowy
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lesson Navigation -->
+                <nav class="lesson-navigation">
+                    <a href="lekcja-05.html" class="nav-btn prev">← Poprzednia lekcja</a>
+                    <a href="lekcja-07.html" class="nav-btn next">Następna lekcja →</a>
+                </nav>
+
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lesson-sidebar">
+                <div class="sidebar-section">
+                    <h3>📚 Spis lekcji</h3>
+                    <ul class="lesson-list">
+                        <li><a href="lekcja-01.html">1. Wprowadzenie do HTML</a></li>
+                        <li><a href="lekcja-02.html">2. Struktura dokumentu</a></li>
+                        <li><a href="lekcja-03.html">3. Formatowanie tekstu</a></li>
+                        <li><a href="lekcja-04.html">4. Listy</a></li>
+                        <li><a href="lekcja-05.html">5. Linki i nawigacja</a></li>
+                        <li class="active"><a href="lekcja-06.html">6. Obrazy i multimedia</a></li>
+                        <li><a href="lekcja-07.html">7. Tabele</a></li>
+                        <li><a href="lekcja-08.html">8. Formularze podstawowe</a></li>
+                        <li><a href="lekcja-09.html">9. Formularze zaawansowane</a></li>
+                        <li><a href="lekcja-10.html">10. Semantyczne HTML5</a></li>
+                        <li><a href="lekcja-11.html">11. Meta tagi i SEO</a></li>
+                        <li><a href="lekcja-12.html">12. Projekt końcowy</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>🎯 Twój postęp</h3>
+                    <div class="progress-circle">
+                        <div class="circle">
+                            <span class="percentage">50%</span>
+                        </div>
+                    </div>
+                    <p>6 z 12 lekcji ukończonych</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>💡 Dodatkowe zasoby</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/img" target="_blank">MDN: Element &lt;img&gt;</a></li>
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/audio" target="_blank">MDN: Element &lt;audio&gt;</a></li>
+                        <li><a href="https://developer.mozilla.org/pl/docs/Web/HTML/Element/video" target="_blank">MDN: Element &lt;video&gt;</a></li>
+                        <li><a href="https://web.dev/fast/#optimize-your-images" target="_blank">Web.dev: Optymalizacja obrazów</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Complete Lesson Button -->
+    <div class="complete-section">
+        <div class="container">
+            <button class="complete-lesson-btn" onclick="completeLesson()">
+                ✅ Oznacz lekcję jako ukończoną
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TEB Edukacja - Kurs HTML podstawowy</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/lesson.js"></script>
+
+    <script>
+        function completeLesson() {
+            if (typeof CourseUtils !== 'undefined') {
+                CourseUtils.completeLesson('6');
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        }
+
+        // Sprawdź czy lekcja jest już ukończona
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof CourseUtils !== 'undefined' && CourseUtils.isLessonCompleted('6')) {
+                document.querySelector('.complete-lesson-btn').innerHTML = '✅ Lekcja ukończona!';
+                document.querySelector('.complete-lesson-btn').disabled = true;
+                document.querySelector('.complete-lesson-btn').style.background = '#10b981';
+            }
+        });
+    </script>
+</body>
+</html>
