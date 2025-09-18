@@ -493,7 +493,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 GlobalSynlogia - System testów HTML</p>
+            <p>&copy; 2025 TEB Edukacja - System testów HTML</p>
         </div>
     </footer>
 
@@ -557,17 +557,13 @@
             // Sprawdź czy ExerciseSystem jest dostępny
             if (typeof ExerciseSystem === 'undefined') {
                 console.error('ExerciseSystem not loaded!');
-                // Fallback - pokaż lekcje bez sprawdzania statusu
+                // Fallback - pokaż wszystkie lekcje jako dostępne
                 for (let i = 1; i <= 12; i++) {
                     const card = document.createElement('div');
                     card.className = 'lesson-card';
 
-                    const statusClass = i <= 2 ? 'available' : 'unavailable';
-                    const statusText = i <= 2 ? '📝 Dostępny' : '🔒 Wkrótce';
-
-                    if (i > 2) {
-                        card.classList.add('unavailable');
-                    }
+                    const statusClass = 'available';
+                    const statusText = '📝 Dostępny';
 
                     card.innerHTML = `
                         <div class="lesson-number">${i}</div>
@@ -577,14 +573,8 @@
                         </div>
                     `;
 
-                    // Tylko lekcje 1 i 2 są klikalne
-                    if (i <= 2) {
-                        card.onclick = () => startTest(i);
-                    } else {
-                        card.onclick = () => {
-                            alert(`Lekcja ${i} nie jest jeszcze dostępna. Ukończ najpierw poprzednie lekcje!`);
-                        };
-                    }
+                    // Wszystkie lekcje są klikalne
+                    card.onclick = () => startTest(i);
                     grid.appendChild(card);
                 }
                 return;
@@ -601,13 +591,11 @@
                     console.warn(`Error checking test status for lesson ${i}:`, e);
                 }
 
-                const statusClass = hasCompletedTest ? 'completed' : (i <= 2 ? 'available' : 'unavailable');
-                const statusText = hasCompletedTest ? '✅ Ukończono' : (i <= 2 ? '📝 Dostępny' : '🔒 Wkrótce');
+                const statusClass = hasCompletedTest ? 'completed' : 'available';
+                const statusText = hasCompletedTest ? '✅ Ukończono' : '📝 Dostępny';
 
                 if (hasCompletedTest) {
                     card.classList.add('completed');
-                } else if (i > 2) {
-                    card.classList.add('unavailable');
                 }
 
                 card.innerHTML = `
@@ -618,14 +606,8 @@
                     </div>
                 `;
 
-                // Tylko lekcje 1 i 2 są klikalne
-                if (i <= 2) {
-                    card.onclick = () => startTest(i);
-                } else {
-                    card.onclick = () => {
-                        alert(`Lekcja ${i} nie jest jeszcze dostępna. Ukończ najpierw poprzednie lekcje!`);
-                    };
-                }
+                // Wszystkie lekcje są klikalne
+                card.onclick = () => startTest(i);
                 grid.appendChild(card);
             }
             console.log('Lesson selector generated successfully');
@@ -642,9 +624,9 @@
                 return;
             }
 
-            // Sprawdź czy lekcja ma ćwiczenia (SimpleExerciseSystem ma tylko 1 i 2)
-            if (lessonNumber > 2) {
-                alert(`Lekcja ${lessonNumber} nie ma jeszcze dostępnych ćwiczeń. Dostępne są tylko lekcje 1 i 2.`);
+            // Sprawdź czy lekcja ma ćwiczenia (SimpleExerciseSystem ma lekcje 1-12)
+            if (lessonNumber > 12) {
+                alert(`Lekcja ${lessonNumber} nie istnieje. Dostępne są lekcje 1-12.`);
                 return;
             }
 
@@ -686,6 +668,8 @@
 
         // Załaduj aktualne ćwiczenie
         function loadCurrentExercise() {
+            // Zsynchronizuj indeks z systemem
+            ExerciseSystem.setExerciseIndex(currentExerciseIndex);
             const exerciseData = ExerciseSystem.getCurrentExercise();
 
             if (!exerciseData) {
@@ -804,6 +788,8 @@
 
         // Zapisz aktualną odpowiedź
         function saveCurrentAnswer() {
+            if (!currentExercise) return;
+
             let answer = '';
 
             if (currentExercise.type === 'quiz') {
@@ -817,21 +803,39 @@
                 if (textarea) answer = textarea.value;
             }
 
+            // Zapisz odpowiedź lokalnie (dla nawigacji wstecz)
             userAnswers[currentExerciseIndex] = answer;
+
+            // Sprawdź odpowiedź w systemie (jeśli coś wprowadzono)
+            if (answer) {
+                const result = ExerciseSystem.checkAnswer(answer);
+                console.log('Answer checked:', result);
+            }
         }
 
         // Następne pytanie
         function nextQuestion() {
             saveCurrentAnswer();
-            currentExerciseIndex++;
-            loadCurrentExercise();
+
+            // Przejdź do następnego ćwiczenia
+            if (currentExerciseIndex < ExerciseSystem.selectedExercises.length - 1) {
+                currentExerciseIndex++;
+                loadCurrentExercise();
+            } else {
+                // Koniec testu
+                finishTest();
+            }
         }
 
         // Poprzednie pytanie
         function previousQuestion() {
             saveCurrentAnswer();
-            currentExerciseIndex--;
-            loadCurrentExercise();
+
+            // Przejdź do poprzedniego ćwiczenia
+            if (currentExerciseIndex > 0) {
+                currentExerciseIndex--;
+                loadCurrentExercise();
+            }
         }
 
         // Aktualizuj nawigację
@@ -841,8 +845,8 @@
 
             prevButton.disabled = currentExerciseIndex === 0;
 
-            const exerciseData = ExerciseSystem.getCurrentExercise();
-            if (exerciseData && currentExerciseIndex === exerciseData.total - 1) {
+            // Sprawdź czy to ostatnie pytanie
+            if (currentExerciseIndex === ExerciseSystem.selectedExercises.length - 1) {
                 nextButton.textContent = 'Zakończ test';
                 nextButton.onclick = finishTest;
             } else {
@@ -856,13 +860,13 @@
             saveCurrentAnswer();
             stopTimer();
 
-            // Prześlij wszystkie odpowiedzi
-            userAnswers.forEach((answer, index) => {
-                // Symulacja sprawdzenia odpowiedzi
-                ExerciseSystem.checkAnswer(answer);
-            });
+            // Oblicz całkowity czas
+            const totalTimeSeconds = Math.floor((Date.now() - testStartTime) / 1000);
 
+            // Zakończ test w systemie
             const results = ExerciseSystem.finishTest();
+            results.totalTime = totalTimeSeconds;
+
             showResults(results);
         }
 
