@@ -718,20 +718,34 @@
             let answerSection = '';
 
             if (exercise.type === 'quiz') {
-                answerSection = `
-                    <div class="answer-section">
-                        <ul class="quiz-options">
-                            ${exercise.options.map((option, index) => `
-                                <li class="quiz-option">
-                                    <label>
-                                        <input type="radio" name="answer" value="${index}">
-                                        ${option}
-                                    </label>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                `;
+                // Sprawdź czy opcje istnieją i są poprawne
+                if (!exercise.options || !Array.isArray(exercise.options) || exercise.options.length === 0) {
+                    console.error('Ćwiczenie quiz bez opcji:', exercise);
+                    answerSection = `
+                        <div class="answer-section">
+                            <p style="color: red; padding: 20px; border: 2px solid red; border-radius: 5px;">
+                                <strong>Błąd:</strong> To ćwiczenie nie ma poprawnych opcji odpowiedzi.<br>
+                                ID ćwiczenia: ${exercise.id}<br>
+                                Tytuł: ${exercise.title || 'Brak tytułu'}
+                            </p>
+                        </div>
+                    `;
+                } else {
+                    answerSection = `
+                        <div class="answer-section">
+                            <ul class="quiz-options">
+                                ${exercise.options.map((option, index) => `
+                                    <li class="quiz-option">
+                                        <label>
+                                            <input type="radio" name="answer" value="${index}">
+                                            ${option}
+                                        </label>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
             } else if (exercise.type === 'code') {
                 answerSection = `
                     <div class="answer-section">
